@@ -10,7 +10,7 @@ interface Item {
   openSource?: boolean
 }
 
-interface ItemProps {
+interface ItemProps { 
   item: Item
 }
 
