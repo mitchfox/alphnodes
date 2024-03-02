@@ -1,0 +1,98 @@
+/* Typography */
+.h1 {
+  @apply text-5xl font-bold;
+}
+
+.h2 {
+  @apply text-4xl font-bold;
+}
+
+.h3 {
+  @apply text-3xl font-bold;
+}
+
+.h4 {
+  @apply text-2xl font-bold;
+}
+
+@screen md {
+  .h1 {
+    @apply text-6xl;
+  }
+
+  .h2 {
+    @apply text-5xl;
+  }
+
+  .h3 {
+    @apply text-4xl;
+  }
+}
+
+/* Buttons */
+.btn,
+.btn-sm {
+  @apply text-sm font-medium inline-flex items-center justify-center border border-transparent rounded-lg shadow-lg shadow-black/25 tracking-normal transition relative isolate before:absolute before:-inset-px before:rounded-lg before:pointer-events-none before:-z-10 before:shadow-[0px_2px_0px_0px_theme(colors.white/.25)_inset] dark:before:shadow-[0px_2px_0px_0px_theme(colors.gray.950/.16)_inset];
+}
+
+.btn {
+  @apply px-4 py-2;
+}
+
+.btn-sm {
+  @apply px-2 py-1;
+}
+
+/* Forms */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio {
+  @apply bg-white/70 dark:bg-gray-900/50 border focus:ring-0 focus:ring-offset-0 border-transparent hover:bg-white/80 dark:hover:bg-gray-900/60 focus:bg-white dark:focus:bg-gray-900/80 focus:border-transparent shadow shadow-black/5;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox {
+  @apply rounded-lg;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select {
+  @apply text-gray-600 dark:text-gray-300 text-sm px-4 py-2;
+}
+
+.form-input,
+.form-textarea {
+  @apply placeholder-gray-400 dark:placeholder-gray-500;
+}
+
+.form-select {
+  @apply pr-10;
+}
+
+.form-checkbox,
+.form-radio {
+  @apply text-white;
+}
+
+.form-checkbox {
+  @apply rounded;
+}
+
+.form-checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%236366F1' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
