@@ -11,7 +11,7 @@ export const metadata = {
   description: "Page description",
 };
 
-import PageHeader from "@/components/page-header";
+import PageHeaderAlt from "@/components/page-header-alt";
 import Cta from "@/components/cta";
 import Posts from "@/app/(default)/updates/posts";
 
@@ -24,12 +24,12 @@ export default async function Updates() {
       <section>
         <div className="pt-32 pb-12 md:pt-44 md:pb-20">
           <div className="px-4 sm:px-6">
-            <PageHeader
+            <PageHeaderAlt
               title="News & Updates"
               description="Rank and score updates and feature requests so you know you're working on the most impactful things."
             >
               What's New
-            </PageHeader>
+            </PageHeaderAlt>
           </div>
         </div>
       </section>

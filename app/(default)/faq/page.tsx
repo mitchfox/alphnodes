@@ -3,7 +3,7 @@ export const metadata = {
   description: "Page description",
 };
 
-import PageHeader from "@/components/page-header";
+import PageHeaderAlt from "@/components/page-header-alt";
 import Accordion from "@/components/accordion";
 import Cta from "@/components/cta";
 
@@ -57,13 +57,13 @@ export default function Faq() {
       <section>
         <div className="pt-32 pb-12 md:pt-44 md:pb-20">
           <div className="px-4 sm:px-6">
-            <PageHeader
+            <PageHeaderAlt
               className="mb-12 md:mb-20"
               title="Let's talk about software"
               description="Here we provide answers for the most common questions. From registering and accessing your account to payments and paid subscriptions."
             >
               Quick Answers
-            </PageHeader>
+            </PageHeaderAlt>
 
             <div className="max-w-3xl mx-auto">
               <div className="space-y-1">

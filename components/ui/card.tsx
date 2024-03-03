@@ -7,7 +7,7 @@ interface Item {
   slug: string
   title: string
   excerpt: string
-  openSource?: boolean
+  comingSoon?: boolean
 }
 
 interface ItemProps { 
@@ -17,16 +17,16 @@ interface ItemProps {
 export default function Card({ item }: ItemProps) {
   return (
     <Link 
-    className="rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-900/90  
+    className="rounded-lg border border-slate-200 hover:border-slate-300 dark:border-cyan-800 dark:hover:border-cyan-700 dark:bg-gradient-to-t dark:from-cyan-900 dark:to-cyan-900/90  
             bg-white transition-color ease-in-out p-6 group shadow " href={item.slug}>
       <div className="flex flex-col h-full">
         <div className="grow">
           <div className="flex items-center justify-between space-x-2">
-            <div className="h-10 w-10 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-full mb-2">
+            <div className="h-10 w-10 flex items-center justify-center border border-cyan-200 dark:border-cyan-700 rounded-full mb-2">
               <Image src={item.icon} width={18} alt={item.title} />
             </div>
-            {item.openSource && (
-              <div className="text-xs inline-flex items-center font-medium bg-green-100 text-green-600 rounded-full text-center px-2 h-5">Open-Source</div>
+            {item.comingSoon && (
+              <div className="text-xs inline-flex items-center font-medium bg-cyan-100 text-cyan-600 rounded-full text-center px-2 h-5">Coming Soon</div>
             )}
           </div>
           <div className="text-lg font-aspekta font-[650] mb-1">{ item.title }</div>

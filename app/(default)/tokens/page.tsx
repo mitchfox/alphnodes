@@ -4,7 +4,6 @@ Note: This code includes an example of how to fetch data from an external JSON f
 */
 }
 
-import getAllPosts from "@/lib/getAllPosts";
 import TokenTable from "./token-table";
 
 export const metadata = {
@@ -13,15 +12,10 @@ export const metadata = {
 };
 
 
-import PageHeader from "@/components/page-header";
 import PageHeaderAlt from "@/components/page-header-alt";
 import Cta from "@/components/cta";
 import Posts from "@/app/(default)/updates/posts";
 import TokenList from "@/components/tokenlist";
-
-
-
-
 
 
 export default async function Updates() {
@@ -45,8 +39,7 @@ export default async function Updates() {
     
       </section>
 
-      
-
+    
       {/* <Posts posts={posts} /> */}
       <Cta />
     </>

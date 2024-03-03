@@ -3,10 +3,11 @@ import ThemeToggle from "./theme-toggle";
 
 export default function Header() {
   return (
-    <header className="sticky top-4 md:top-6 w-full z-30 pb-4 md:pb-6 [border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.4),transparent)1] dark:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] dark:shadow-none">
+    <header className="sticky top-4 md:top-6 w-full z-30  pb-4 md:pb-6 [border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.4),transparent)1] dark:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] dark:shadow-none">
       <div className="px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="relative flex items-center justify-between gap-x-2 h-12 rounded-lg px-3 shadow bg-slate-50/50 dark:bg-slate-900/50 "
+          <div className="relative flex items-center justify-between gap-x-2 h-12 rounded-lg px-3
+           shadow bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800"
             style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
             {/* Border with dots in corners */}
             <div
@@ -26,7 +27,7 @@ export default function Header() {
               <Link href="/" style={{
                 fontWeight: '700'
               }} className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3">
-                ℵALPHWIKI
+                ℵALPHWIKI <span className="text-cyan-400 italic">BETA</span>
 
               </Link>
             </div>

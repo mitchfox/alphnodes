@@ -3,20 +3,20 @@ export const metadata = {
   description: "Page description",
 };
 
-import PageHeader from "@/components/page-header";
+import PageHeaderAlt from "@/components/page-header-alt";
 
 export default function Contact() {
   return (
     <section>
       <div className="pt-32 pb-12 md:pt-44 md:pb-20">
         <div className="px-4 sm:px-6">
-          <PageHeader
+          <PageHeaderAlt
             className="mb-12 md:mb-20"
             title="Get in touch"
             description="Fill out the form below to set up a call, or keep reading to get in touch with us for customer support, partnerships, or media enquiries."
           >
             Contact us
-          </PageHeader>
+          </PageHeaderAlt>
 
           {/* Contact form */}
           <div className="relative flex items-center justify-center gap-10 before:h-px before:w-full before:border-b before:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.8),transparent)1] dark:before:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] before:shadow-sm before:shadow-white/20 dark:before:shadow-none after:h-px after:w-full after:border-b after:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.8),transparent)1] dark:after:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] after:shadow-sm after:shadow-white/20 dark:after:shadow-none mb-16 pb-3">

@@ -22,11 +22,15 @@ interface Token {
 }
 
 interface TokenPriceInfo extends Token {
-    pricePerAlph: string;
-    priceUsd: string;
+    pricePerAlph: number;
+    priceUsd: number;
     supply: number;
     maxSupply: number;
+    circulatingSupply: number;
+    logoURI: string;
+    priceInUSD?: number;
 }
+
 
 export default function TokenTable() {
 
@@ -129,11 +133,24 @@ export default function TokenTable() {
     );
     const [alphPrice, setAlphPrice] = useState(0);
     const [tokenPrices, setTokenPrices] = useState<TokenPriceInfo[]>([]);
+    const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
 
-    function numberWithCommas(x: number) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+        function numberWithCommas(x: number) {
+            const parts = x.toString().split('.');
+            return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
 
     // GET CIRCULATING SUPPLY IF PROVIDED
     async function getCirculatingSupply(supply: number, address: string, tokenid: string, decimals: number) {
@@ -183,8 +200,6 @@ export default function TokenTable() {
 
 
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -206,14 +221,20 @@ export default function TokenTable() {
 
                 // Sort tokens by market cap
                 const sortedTokenPrices = tokenPrices.slice().sort((a, b) => {
-                const marketCapA = a.priceInUSD * (a.circulatingSupply || a.supply);
-                const marketCapB = b.priceInUSD * (b.circulatingSupply || b.supply);
-                return marketCapB - marketCapA; // Sort in descending order
-            });
+                    const marketCapA = a.priceInUSD * (a.circulatingSupply || a.supply);
+                    const marketCapB = b.priceInUSD * (b.circulatingSupply || b.supply);
+                    return marketCapB - marketCapA; // Sort in descending order
+                });
+
+                // Add missing properties to each object in the array
+                const updatedTokenPrices = sortedTokenPrices.map((token) => ({
+                    ...token,
+                    priceUsd: 0, // Add the missing property priceUsd
+                    maxSupply: 0, // Add the missing property maxSupply
+                }));
 
                 // Set the token prices in state
-                setTokenPrices(sortedTokenPrices);
-                // console.log(tokenPrices);
+                setTokenPrices(updatedTokenPrices as TokenPriceInfo[]);
             } catch (error) {
                 console.error(error);
             }
@@ -225,13 +246,11 @@ export default function TokenTable() {
 
 
 
-
-
     // Render the table using tokenPrices state
     return (
         <div style={{ width: '100%', display: 'flex' }}>
             <div style={{ margin: 'auto', width: 'auto' }}>
-                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div className="relative overflow-x-auto shadow-md rounded-lg">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead className="text-xs text-gray-800 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-300">
                             <tr>
@@ -241,21 +260,29 @@ export default function TokenTable() {
                                 <th scope="col" className="px-6 py-3">
                                     USD
                                 </th>
-                                <th scope="col" className="px-6 py-3">
+                                {/* <th scope="col" className="px-6 py-3">
                                     Price ALPH
-                                </th>
+                                </th> */}
                                 <th scope="col" className="px-6 py-3">
                                     Market Cap
                                 </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Circulating Supply
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Total Supply
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Website
-                                </th>
+
+                                {
+                                    windowWidth && windowWidth > 800 ?
+                                        <>
+                                            <th scope="col" className="px-6 py-3">
+                                                Circulating Supply
+                                            </th>
+                                            <th scope="col" className="px-6 py-3">
+                                                Total Supply
+                                            </th>
+                                            <th scope="col" className="px-6 py-3">
+                                                Website
+                                            </th>
+                                        </>
+                                        :
+                                        null
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -268,35 +295,44 @@ export default function TokenTable() {
                                         </div>
                                     </th>
                                     <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        ${token.priceInUSD.toFixed(3)}
+                                        ${token.priceInUSD?.toFixed(3) ?? 'N/A'}
                                     </th>
-                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                    {/* <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
                                         ℵ{token.pricePerAlph.toFixed(4)}
-                                    </th>
+                                    </th> */}
                                     <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
                                         {
                                             token.circulating_supply_address ?
-                                                `$${numberWithCommas((token.priceInUSD * token.circulatingSupply).toFixed(0))}`
+                                                `$${numberWithCommas(((Number(token.priceInUSD) || 0) * (Number(token.circulatingSupply) || 0)))}`
                                                 :
                                                 'TBA'
                                         }
                                     </th>
-                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        {
-                                            token.circulating_supply_address ?
-                                                <>
-                                                    {numberWithCommas(Number(token.circulatingSupply.toFixed(0)))}
-                                                </>
-                                                :
-                                                'TBA'
-                                        }
-                                    </th>
-                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        {numberWithCommas(token.supply.toFixed(0))} {/* Assuming supply is a valid number */}
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                    Website
-                                </th>
+
+                                    {
+                                        windowWidth && windowWidth > 800 ?
+                                            <>
+
+                                                <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                                    {
+                                                        token.circulating_supply_address ?
+                                                            <>
+                                                                {numberWithCommas(token.circulatingSupply)}
+                                                            </>
+                                                            :
+                                                            'TBA'
+                                                    }
+                                                </th>
+                                                <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                                    {token.supply ? numberWithCommas(token.supply) : 'N/A'}
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Website
+                                                </th>
+                                            </>
+                                            :
+                                            null
+                                    }
                                 </tr>
                             ))}
                         </tbody>

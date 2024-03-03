@@ -16,73 +16,73 @@ export const metadata = {
 
 export default function CardLinks() {
 
-  const items01 = [
-    {
-      id: 0,
-      icon: Icon01,
-      slug: '#0',
-      title: 'Tokens',
-      excerpt: 'Solutions for running containers locally and remotely.',
-      openSource: true,
-    },
-    {
-      id: 0,
-      icon: Icon02,
-      slug: '#0',
-      title: 'dApps',
-      excerpt: 'Solutions for running containers locally and remotely.',
-      openSource: false,
-    },
-  ]
+//   const items01 = [
+//     {
+//       id: 0,
+//       icon: Icon01,
+//       slug: 'tokens',
+//       title: 'Tokens',
+//       excerpt: 'Solutions for running containers locally and remotely.',
+//       comingSoon: false,
+//     },
+//     {
+//       id: 0,
+//       icon: Icon02,
+//       slug: '#0',
+//       title: 'dApps',
+//       excerpt: 'Solutions for running containers locally and remotely.',
+//       comingSoon: true,
+//     },
+//   ]
 
   const items02 = [
     {
-      id: 0,
-      icon: Icon03,
-      slug: '#0',
-      title: 'PixelOkay',
-      excerpt: 'Code assets and services for people, with people.',
-      openSource: false,
-    },
-    {
-      id: 1,
-      icon: Icon04,
-      slug: '#0',
-      title: 'Storybook',
-      excerpt: 'Storybook helps you develop, test, and document UIs.',
-      openSource: false,
-    },
+        id: 0,
+        icon: Icon01,
+        slug: 'tokens',
+        title: 'Tokens',
+        excerpt: 'Solutions for running containers locally and remotely.',
+        comingSoon: false,
+      },
+      {
+        id: 1,
+        icon: Icon02,
+        slug: '#0',
+        title: 'dApps',
+        excerpt: 'Solutions for running containers locally and remotely.',
+        comingSoon: true,
+      },
     {
       id: 2,
+      icon: Icon03,
+      slug: '#0',
+      title: 'Calculator',
+      excerpt: 'Code assets and services for people, with people.',
+      comingSoon: true,
+    },
+    {
+      id: 3,
+      icon: Icon04,
+      slug: '#0',
+      title: "DEXs",
+      excerpt: 'Storybook helps you develop, test, and document UIs.',
+      comingSoon: true,
+    },
+    {
+      id: 4,
       icon: Icon05,
       slug: '#0',
       title: 'Knowledge AI',
       excerpt: 'Instantly answers all questions based on your internal knowledge bases.',
-      openSource: false,
+      comingSoon: true,
     },
     {
-      id: 3,
+      id: 5,
       icon: Icon06,
       slug: '#0',
       title: 'Security Frame',
       excerpt: 'Automated security compliance for your business.',
-      openSource: false,
-    },
-    {
-      id: 4,
-      icon: Icon07,
-      slug: '#0',
-      title: 'KanbanOK',
-      excerpt: 'The most powerful kanban board ever invented.',
-      openSource: false,
-    },
-    {
-      id: 5,
-      icon: Icon08,
-      slug: '#0',
-      title: 'T Analytics',
-      excerpt: 'Make your Twitter analytics pretty and easy to share.',
-      openSource: false,
+      comingSoon: true,
     },
   ]
 
@@ -97,16 +97,16 @@ export default function CardLinks() {
             {/* Page content */}
             <div className="space-y-10">
               {/* Side Hustles cards */}
-              <section>
+              {/* <section> */}
                 {/* Cards */}
-                <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-10">
+                {/* <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-10">
 
                   {items01.map(item => (
                     <Card key={item.id} item={item} />
                   ))}
 
                 </div>
-              </section>
+              </section> */}
               {/* Client Projects cards */}
               <section>
                 {/* Cards */}

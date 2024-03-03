@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import { GetAlphPrice } from "@/app/(default)/functions/getAlphPrice";
 
 interface PageHeaderProps {
@@ -12,6 +12,9 @@ interface PageHeaderProps {
   secondText: string;
   description?: string;
 }
+
+
+
 
 export default function PageHeader({
   className,
@@ -49,23 +52,23 @@ export default function PageHeader({
             />
             <span className="relative text-gray-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:from-cyan-500 dark:to-cyan-50">
               {children}${price}
-
+              
             </span>
           </div>
         </div>
         <div>
           <h1 className="font-inter-tight text-5xl md:text-6xl font-bold text-gray-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:from-cyan-200 dark:to-gray-200 pb-4">
-            {firstText}
-            <span
-              style={{
-                background: 'linear-gradient(to right, #eb8690, #edb677, #dbdb5e, #88f29f, #8ecbfa)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}
-              className="bg-clip-text dark:bg-clip-text dark:text-transparent"
-            >
-              {alph}
-            </span>  {secondText}
+            {firstText}  
+            <span 
+    style={{
+      background: 'linear-gradient(to right, #eb8690, #edb677, #dbdb5e, #88f29f, #8ecbfa)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent'
+    }}
+    className="bg-clip-text dark:bg-clip-text dark:text-transparent"
+  >
+    {alph}
+  </span>  {secondText}
           </h1>
           <p className="text-lg text-gray-500 dark:text-gray-400">
             {description}
