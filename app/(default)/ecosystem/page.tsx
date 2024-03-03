@@ -7,7 +7,7 @@ Note: This code includes an example of how to fetch data from an external JSON f
 import getAllPosts from "@/lib/getAllPosts";
 
 export const metadata = {
-  title: "Updates - Creative",
+  title: "AlphWiki - Ecosystem",
   description: "Page description",
 };
 
@@ -15,7 +15,7 @@ import PageHeaderAlt from "@/components/page-header-alt";
 import Cta from "@/components/cta";
 import Posts from "@/app/(default)/updates/posts";
 
-export default async function Updates() {
+export default async function Ecosystem() {
   const postsData: Promise<Post[]> = getAllPosts();
   const posts = await postsData;
 
@@ -26,9 +26,9 @@ export default async function Updates() {
           <div className="px-4 sm:px-6">
             <PageHeaderAlt
               title="Coming Soon"
-              description="Rank and score updates and feature requests so you know you're working on the most impactful things."
+              description="Big things are coming..."
             >
-              What's New
+              Ecosystem
             </PageHeaderAlt>
           </div>
         </div>

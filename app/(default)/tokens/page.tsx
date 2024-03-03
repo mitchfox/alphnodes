@@ -7,7 +7,7 @@ Note: This code includes an example of how to fetch data from an external JSON f
 import TokenTable from "./token-table";
 
 export const metadata = {
-  title: "Updates - Creative",
+  title: "AlphWiki - Tools built on Alephium",
   description: "Page description",
 };
 
@@ -27,7 +27,7 @@ export default async function Updates() {
           <div className="px-4 sm:px-6">
             <PageHeaderAlt
               title="Tokens on Alephium"
-              description="Rank and score updates and feature requests so you know you're working on the most impactful things."
+              description="Explore the extensive range of Alephium tokens, featuring comprehensive data and live prices."
             >
               Tokens
             </PageHeaderAlt>

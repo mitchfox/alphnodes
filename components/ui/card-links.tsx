@@ -68,22 +68,22 @@ export default function CardLinks() {
       excerpt: 'Storybook helps you develop, test, and document UIs.',
       comingSoon: true,
     },
-    {
-      id: 4,
-      icon: Icon05,
-      slug: '#0',
-      title: 'Knowledge AI',
-      excerpt: 'Instantly answers all questions based on your internal knowledge bases.',
-      comingSoon: true,
-    },
-    {
-      id: 5,
-      icon: Icon06,
-      slug: '#0',
-      title: 'Security Frame',
-      excerpt: 'Automated security compliance for your business.',
-      comingSoon: true,
-    },
+    // {
+    //   id: 4,
+    //   icon: Icon05,
+    //   slug: '#0',
+    //   title: 'Knowledge AI',
+    //   excerpt: 'Instantly answers all questions based on your internal knowledge bases.',
+    //   comingSoon: true,
+    // },
+    // {
+    //   id: 5,
+    //   icon: Icon06,
+    //   slug: '#0',
+    //   title: 'Security Frame',
+    //   excerpt: 'Automated security compliance for your business.',
+    //   comingSoon: true,
+    // },
   ]
 
   return (

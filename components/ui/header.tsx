@@ -1,16 +1,53 @@
+'use client';
+
+import React, { useEffect, useState } from "react";
+
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
+import { HiOutlineMenu } from "react-icons/hi";
 
 export default function Header() {
+
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  // close menu on click
+  useEffect(() => {
+   
+  }
+    , [windowWidth]);
+
+
   return (
-    <header className="sticky top-4 md:top-6 w-full z-30  pb-4 md:pb-6 [border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.4),transparent)1] dark:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] dark:shadow-none">
+
+
+    <>
+    {
+      windowWidth ?
+      <header className="sticky top-4 md:top-6 w-full z-30  pb-4 md:pb-6 [border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.4),transparent)1] dark:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] dark:shadow-none">
       <div className="px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="relative flex items-center justify-between gap-x-2 h-12 rounded-lg px-3
            shadow bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800"
             style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
             {/* Border with dots in corners */}
-            <div
+            <div 
               className="absolute bg-cyan-500/15 dark:bg-gray-800/50 rounded-sm -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[10px] 
               before:bg-[length:10px_10px] before:[background-position:top_center,bottom_center] before:bg-no-repeat 
               before:[background-image:radial-gradient(circle_at_center,theme(colors.cyan.500/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.cyan.500/.56)_1px,transparent_1px)] 
@@ -25,63 +62,180 @@ export default function Header() {
             <div className="flex-1">
               {/* Logo */}
               <Link href="/" style={{
-                fontWeight: '700'
+                fontWeight: '700', fontSize: '15px'
               }} className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3">
-                ℵALPHWIKI <span className="text-cyan-400 italic">BETA</span>
+                <span style={{ fontSize: '18px' }}>ℵ </span>ALPH<span className="text-cyan-400 italic">WIKI</span>
 
               </Link>
             </div>
             {/* Navigation links */}
-            <nav className="flex justify-center">
-              <ul className="flex items-center sm:gap-x-3 text-sm font-medium">
-                <li>
-                  <Link
-                    className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                    href="/tokens"
-                  >
-                    Tokens
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                    href="/updates"
-                  >
-                    Ecosystem
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                    href="/updates"
-                  >
-                    Calculator
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
-                    href="/faq"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
-                    href="/contact"
-                  >
-                    Support
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+
+            {
+
+              windowWidth && windowWidth < 800 ? 
+              <>
+              {
+                isMenuOpen ?
+                <nav className="flex justify-center absolute top-16 right-0" style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', zIndex: '9999'}}>
+                  <div style={{ backdropFilter: 'blur(8px)', filter: 'blue(8px)', WebkitBackdropFilter: 'blur(8px)', zIndex: '9999', height: 'auto' }} className="block items-center sm:gap-x-3 text-sm font-medium relative items-center justify-between gap-x-2 h-12 rounded-lg px-3
+                    shadow bg-slate-100/90 backdrop-blur dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+
+                
+                
+                  <ul 
+                   >
+                    <li className="items-center py-4" >
+                      <Link
+                      style={{ width: '100%', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', zIndex: '9999' }}
+                        className="text-gray-800  dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/"
+                      >
+                        Home
+                      </Link>
+                    </li>
+                    <li className="items-center py-4" >
+                      <Link
+                      style={{ width: '100%', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', zIndex: '9999' }}
+                        className="text-gray-800  dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/tokens"
+                      >
+                        Tokens
+                      </Link>
+                    </li>
+                    <li className="items-center py-4">
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/updates"
+                      >
+                        Ecosystem
+                      </Link>
+                    </li>
+                    <li className="items-center py-4">
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/tools"
+                      >
+                        Tools
+                      </Link>
+                    </li>
+                    {/* <li className="items-center py-4">
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/updates"
+                      >
+                        Calculator
+                      </Link>
+                    </li>
+                    <li className="items-center py-4">
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        href="/faq"
+                      >
+                        FAQ
+                      </Link>
+                    </li>
+                    <li className="items-center py-4">
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        href="/contact"
+                      >
+                        Support
+                      </Link>
+                    </li> */}
+                    <li className="items-center py-4">
+                      <div
+                        onClick={() => toggleMenu()}
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                  
+                      >
+                        Close
+                      </div>
+                    </li>
+                  </ul>
+                  </div>
+                </nav>
+                :
+                null
+
+              }
+               
+              
+              
+              </>
+              
+              
+              : (
+                <nav className="flex justify-center">
+                  <ul className="flex items-center sm:gap-x-3 text-sm font-medium">
+                    <li>
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/tokens"
+                      >
+                        Tokens
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/ecosystem"
+                      >
+                        Ecosystem
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/tools"
+                      >
+                        Tools
+                      </Link>
+                    </li>
+                    {/* <li>
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        href="/faq"
+                      >
+                        FAQ
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        href="/contact"
+                      >
+                        Support
+                      </Link>
+                    </li> */}
+                  </ul>
+                </nav>
+              )
+            }
+
 
             {/* Light switch */}
             <ThemeToggle />
+
+            
+
+
+            {
+              windowWidth && windowWidth < 800 ?
+                <HiOutlineMenu
+                onClick={() => toggleMenu()}
+                style={{ fontSize: '20px', cursor: 'pointer' }} />
+                :
+                null
+            }
+
           </div>
         </div>
       </div>
-    </header>
+      </header>
+    :
+    null
+    }
+    
+    </>
   );
 }

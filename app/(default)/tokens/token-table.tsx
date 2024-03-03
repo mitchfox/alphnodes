@@ -1,10 +1,25 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import TokenList from "@/components/tokenlist";
-import { GetAlphPrice } from "../functions/getAlphPrice";
+// import {
+//     TokenInfo,
+//     TokenList,
+//     mainnetTokensMetadata,
+//     testnetTokensMetadata,
+//   } from '@alephium/token-list'
 
-import tokens from "@alephium/token-list";
+import { GetAlphPrice } from "../functions/getAlphPrice";
+import {
+    FungibleTokenMetaData,
+    addressFromTokenId,
+    groupOfAddress,
+    hexToString,
+    // codec,
+    prettifyTokenAmount,
+    ExplorerProvider,
+    Address,
+} from '@alephium/web3'
+// import {tokens} from "@alephium/token-list";
 
 const ALPH_DECIMALS = 18;
 const EXPLORER_BASEURL = "https://explorer.mainnet.alephium.org"
@@ -35,13 +50,16 @@ interface TokenPriceInfo extends Token {
 export default function TokenTable() {
 
     // const [rawTokenData, setRawTokenData] = useState(tokens.mainnet);
-    console.log(tokens.mainnet);
+    // console.log(tokens.mainnet);
+    // console.log(mainnetTokensMetadata)
     const [tokenData, setTokenData] = useState<TokenPriceInfo[]>([]);
     const [rawTokenData, setRawTokenData] = useState([
         {
             "tokenid": "1a281053ba8601a658368594da034c2e99a0fb951b86498d05e76aedfe666800",
             "contractid": "25ywM8iGxKpZWuGA5z6DXKGcZCXtPBmnbQyJEsjvjjWTy",
             "symbol": "AYIN",
+            // "supply": 1130857.7776,
+            "token_address": '239NpfNCR6mVyJKrm171YaNkDfwAe6kQnBr6Kg8gXV5CK',
             "decimals": 18,
             "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/AYIN.png"
         },
@@ -75,6 +93,7 @@ export default function TokenTable() {
             "contractid": "27wpryy3RtEYLnkuF2xgPKQfcYAxWY4mFxaM8XHpXndfD",
             "symbol": "PACA",
             "decimals": 0,
+            "supply": 100000000,
             "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/PACA.png"
         },
         {
@@ -82,7 +101,7 @@ export default function TokenTable() {
             "contractid": "tx1Uck1idLzfyjAbyqrFkNWrxz1MfKCV5FELnJdtbVUs",
             "symbol": "TAIL",
             "decimals": 0,
-            "supply": 200000,
+            "supply": 69000000,
             "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/TAIL.png"
         },
         {
@@ -134,7 +153,8 @@ export default function TokenTable() {
     const [alphPrice, setAlphPrice] = useState(0);
     const [tokenPrices, setTokenPrices] = useState<TokenPriceInfo[]>([]);
     const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
-
+    const [simplePricingChecked, setSimplePricingChecked] = useState(false);
+    const [alphPricingChecked, setalphPricingChecked] = useState(false);
     useEffect(() => {
         setWindowWidth(window.innerWidth);
         const handleResize = () => {
@@ -147,10 +167,10 @@ export default function TokenTable() {
     }, []);
 
 
-        function numberWithCommas(x: number) {
-            const parts = x.toString().split('.');
-            return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+    function numberWithCommas(x: number) {
+        const parts = x.toString().split('.');
+        return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     // GET CIRCULATING SUPPLY IF PROVIDED
     async function getCirculatingSupply(supply: number, address: string, tokenid: string, decimals: number) {
@@ -199,6 +219,17 @@ export default function TokenTable() {
     }
 
 
+    const testBackend = async () => {
+        const [tokenResponse, alphResponse] = await Promise.all([
+            fetch(`${BACKEND_BASEURL}/addresses/${contractid}/tokens/${tokenid}/balance`).then(resp => resp.json()),
+            fetch(`${BACKEND_BASEURL}/addresses/${contractid}/balance`).then(resp => resp.json())
+        ]);
+
+    }
+
+
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -208,7 +239,6 @@ export default function TokenTable() {
 
                 // Fetch token prices for each token in rawTokenData
                 const tokenPrices = await Promise.all(rawTokenData.map(async (token) => {
-
                     const { contractid, tokenid, decimals, symbol, circulating_supply_address } = token;
                     const [pricePerAlph, priceInUSD] = await getTokenPrices(contractid, tokenid, decimals, alphPrice, symbol);
                     let circulatingSupply = undefined;
@@ -221,9 +251,25 @@ export default function TokenTable() {
 
                 // Sort tokens by market cap
                 const sortedTokenPrices = tokenPrices.slice().sort((a, b) => {
-                    const marketCapA = a.priceInUSD * (a.circulatingSupply || a.supply);
-                    const marketCapB = b.priceInUSD * (b.circulatingSupply || b.supply);
-                    return marketCapB - marketCapA; // Sort in descending order
+                    const marketCapA = (a.priceInUSD || 0) * (a.circulatingSupply || a.supply || 0);
+                    const marketCapB = (b.priceInUSD || 0) * (b.circulatingSupply || b.supply || 0);
+
+                    // If both tokens have missing circulating supply, maintain original order
+                    if (!a.circulatingSupply && !b.circulatingSupply) {
+                        return 0;
+                    }
+                    // If only token A has missing circulating supply, move it to the bottom
+                    else if (!a.circulatingSupply) {
+                        return 1;
+                    }
+                    // If only token B has missing circulating supply, move it to the bottom
+                    else if (!b.circulatingSupply) {
+                        return -1;
+                    }
+                    // Otherwise, sort by market cap in descending order
+                    else {
+                        return marketCapB - marketCapA;
+                    }
                 });
 
                 // Add missing properties to each object in the array
@@ -248,83 +294,54 @@ export default function TokenTable() {
 
     // Render the table using tokenPrices state
     return (
-        <div style={{ width: '100%', display: 'flex' }}>
-            <div style={{ margin: 'auto', width: 'auto' }}>
-                <div className="relative overflow-x-auto shadow-md rounded-lg">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-800 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-300">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    Token
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    USD
-                                </th>
-                                {/* <th scope="col" className="px-6 py-3">
-                                    Price ALPH
-                                </th> */}
-                                <th scope="col" className="px-6 py-3">
-                                    Market Cap
-                                </th>
+        <>
 
-                                {
-                                    windowWidth && windowWidth > 800 ?
-                                        <>
-                                            <th scope="col" className="px-6 py-3">
-                                                Circulating Supply
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Total Supply
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Website
-                                            </th>
-                                        </>
-                                        :
-                                        null
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tokenPrices.map((token, index) => (
-                                <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th className="px-6 py-4 text-gray-600 dark:text-gray-400">
-                                        <div style={{ display: 'flex' }}>
-                                            <img className="w-6 h-6 rounded-full flex me-2" src={token.logoURI} alt="sym" />
-                                            {token.symbol}
-                                        </div>
+        <div className="max-w-4xl mx-auto" style={{ display: 'flex', width: '100%', textAlign: 'center', margin: 'auto', }}>
+          
+        <div style={{ margin: 'auto 0px auto auto' }}>
+            {/* <label className="inline-flex items-center mb-5 cursor-pointer mr-12">
+                <input type="checkbox" value={simplePricingChecked} onChange={() => setSimplePricingChecked(!simplePricingChecked)} className="sr-only peer" />
+                <div className="relative w-9 h-5 bg-gray-300/50  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-orange-300"></div>
+                <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Simple</span>
+            </label>  */}
+
+            <label className="inline-flex items-center mb-5 cursor-pointer">
+                <input type="checkbox" value={alphPricingChecked} onChange={() => setalphPricingChecked(!alphPricingChecked)} className="sr-only peer" 
+                
+                />
+                <span className="me-2 text-sm font-medium text-gray-900 dark:text-gray-300">{alphPricingChecked ? "ℵALPH" : '$USD'}</span>
+
+                <div className="relative w-9 h-5 bg-gray-200  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-orange-300"></div>
+            </label> 
+            </div>
+            </div>
+
+                <div className="max-w-4xl mx-auto" style={{ margin: 'auto', width: 'auto' }}>
+                    <div className="relative overflow-x-auto shadow-md rounded-lg">
+                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead className="text-xs text-gray-800 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-300">
+                                <tr>
+                                    <th scope="col" className="px-6 py-3">
+                                        Token
                                     </th>
-                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        ${token.priceInUSD?.toFixed(3) ?? 'N/A'}
+                                    <th scope="col" className="px-6 py-3">
+                                        USD
                                     </th>
-                                    {/* <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        ℵ{token.pricePerAlph.toFixed(4)}
-                                    </th> */}
-                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        {
-                                            token.circulating_supply_address ?
-                                                `$${numberWithCommas(((Number(token.priceInUSD) || 0) * (Number(token.circulatingSupply) || 0)))}`
-                                                :
-                                                'TBA'
-                                        }
+                                    {/* <th scope="col" className="px-6 py-3">
+                        Price ALPH
+                    </th> */}
+                                    <th scope="col" className="px-6 py-3">
+                                        Market Cap
                                     </th>
 
                                     {
                                         windowWidth && windowWidth > 800 ?
                                             <>
-
-                                                <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                                    {
-                                                        token.circulating_supply_address ?
-                                                            <>
-                                                                {numberWithCommas(token.circulatingSupply)}
-                                                            </>
-                                                            :
-                                                            'TBA'
-                                                    }
+                                                <th scope="col" className="px-6 py-3">
+                                                    Circulating Supply
                                                 </th>
-                                                <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                                    {token.supply ? numberWithCommas(token.supply) : 'N/A'}
+                                                <th scope="col" className="px-6 py-3">
+                                                    Total Supply
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
                                                     Website
@@ -334,12 +351,73 @@ export default function TokenTable() {
                                             null
                                     }
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                {tokenPrices.map((token, index) => (
+                                    <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <th className="px-6 py-4 text-gray-600 dark:text-gray-400">
+                                            <div style={{ display: 'flex' }}>
+                                                <img className="w-6 h-6 rounded-full flex me-2" src={token.logoURI} alt="sym" />
+                                                {token.symbol}
+                                            </div>
+                                        </th>
+                                        <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+
+                                            {
+                                                alphPricingChecked ?
+                                                    `ℵ${token.pricePerAlph.toFixed(4)}`
+                                                    :
+                                                    `$${token.priceInUSD?.toFixed(3) ?? 'N/A'}`
+                                            }
+
+                                    
+                                        </th>
+                                        {/* <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                            ℵ{token.pricePerAlph.toFixed(4)}
+                        </th> */}
+                                        <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                            {
+                                                token.circulating_supply_address ?
+                                                    `$${numberWithCommas(((Number(token.priceInUSD) || 0) * (Number(token.circulatingSupply) || 0)))}`
+                                                    :
+                                                    'TBA'
+                                            }
+                                        </th>
+
+                                        {
+                                            windowWidth && windowWidth > 800 ?
+                                                <>
+
+                                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                                        {
+                                                            token.circulating_supply_address ?
+                                                                <>
+                                                                    {numberWithCommas(token.circulatingSupply)}
+                                                                </>
+                                                                :
+                                                                'TBA'
+                                                        }
+                                                    </th>
+                                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                                        {token.supply ? numberWithCommas(token.supply) : 'N/A'}
+                                                    </th>
+                                                    <th scope="col" className="px-6 py-3">
+                                                        Website
+                                                    </th>
+                                                </>
+                                                :
+                                                null
+                                        }
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+ 
             </div>
-        </div>
+
+        </>
+
     );
 
 }

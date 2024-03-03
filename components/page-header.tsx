@@ -70,7 +70,7 @@ export default function PageHeader({
     {alph}
   </span>  {secondText}
           </h1>
-          <p className="text-lg text-gray-500 dark:text-gray-400">
+          <p className="text-lg text-slate-500 dark:text-slate-400">
             {description}
           </p>
         </div>

@@ -2,6 +2,7 @@ import "./css/style.css";
 
 import { Inter, Inter_Tight } from "next/font/google";
 import Theme from "./theme-provider";
+// import { WalletConfigProvider } from './path/to/WalletConfigProvider';
 
 const inter = Inter({
   subsets: ["latin"],

@@ -31,7 +31,7 @@ export default function PageHeaderAlt({
             {title}  
          
           </h1>
-          <p className="text-lg text-gray-500 dark:text-gray-500">
+          <p className="text-lg text-slate-500 dark:text-slate-400">
             {description}
           </p>
         </div>
