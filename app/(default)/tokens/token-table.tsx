@@ -52,7 +52,8 @@ export default function TokenTable() {
                 "symbol": "AYIN",
                 "token_address": "239NpfNCR6mVyJKrm171YaNkDfwAe6kQnBr6Kg8gXV5CK",
                 "decimals": 18,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/AYIN.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/AYIN.png",
+                "socials": 'ayincoin'
             },
             {
                 "tokenid": "66da610efb5129c062e88e5fd65fe810f31efd1597021b2edf887a4360fa0800",
@@ -60,7 +61,8 @@ export default function TokenTable() {
                 "symbol": "ALF",
                 "supply": 161803,
                 "decimals": 9,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/ALF.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/ALF.png",
+                "socials": 'N/A'
             },
             {
                 "tokenid": "b522184377a33e376e997a950288fa76c1f48e97bc29cd10779adc7cfb673200",
@@ -68,7 +70,8 @@ export default function TokenTable() {
                 "symbol": "BERRY",
                 "decimals": 0,
                 "supply": 10000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/BERRY.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/BERRY.png",
+                "socials": 'N/A'
             },
             {
                 "tokenid": "7da28936499f56ffed497fe7eba856aa85eeb943bab2478e36f7020d89cd2400",
@@ -77,7 +80,8 @@ export default function TokenTable() {
                 "decimals": 9,
                 "circulating_supply_address": "1GDegYLQDXFwDBwMnjTzZXGXW4vYoxxwPKEHNAf8smquV",
                 "supply": 999999,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/VLAD.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/VLAD.png",
+                "socials": 'N/A'
             },
             {
                 "tokenid": "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002",
@@ -85,7 +89,8 @@ export default function TokenTable() {
                 "symbol": "PACA",
                 "decimals": 0,
                 "supply": 100000000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/PACA.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/PACA.png",
+                "socials": 'alphpacas'
             },
             {
                 "tokenid": "1516c410b54470d667e1315ce2faa81870c76c5c7a491e3e86eeec8366495502",
@@ -93,7 +98,8 @@ export default function TokenTable() {
                 "symbol": "TAIL",
                 "decimals": 0,
                 "supply": 69000000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/TAIL.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/TAIL.png",
+                "socials": 'N/A'
             },
             {
                 "tokenid": "df3008f43a7cc1d4a37eef71bf581fc4b9c3be4e2d58ed6d1df483bbb83bd200",
@@ -101,7 +107,8 @@ export default function TokenTable() {
                 "symbol": "NGU",
                 "decimals": 7,
                 "supply": 7777777,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/NGU.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/NGU.png",
+                "socials": 'numbergoup_ngu'
             },
             {
                 "tokenid": "3f0139e1b0aa2cf0a9400ccdb73d00750bcfc8c7be0e858052d794491c8a5900",
@@ -110,7 +117,8 @@ export default function TokenTable() {
                 "decimals": 5,
                 "circulating_supply_address": "1pyEwJ576wnMh2acyednFq4p8f16QqWK5TJ5zsDCYLQp",
                 "supply": 100000000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/SHIN.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/SHIN.png",
+                "socials": 'Shin_Inu_Aleph'
             },
             {
                 "tokenid": "c1aeea313e36454f35beaf40130c9219faa40ba645aff93e16429146039f8202",
@@ -119,7 +127,8 @@ export default function TokenTable() {
                 "decimals": 5,
                 "circulating_supply_address": "1GKH3r2ZG9M8R1TRFFxrf5gq6Ww7MgdrLYt7cptiG4Vrx",
                 "supply": 6000000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/WANG.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/WANG.png",
+                "socials": 'ChengisWang'
             },
             {
                 "tokenid": "4e0eb20afb173cd534ae29acd013861115482c1e3d8ed626294bbe1008a3f900",
@@ -128,7 +137,8 @@ export default function TokenTable() {
                 "decimals": 8,
                 "circulating_supply_address": "X2Wp1VoypFSASzqhUoockvTPt6vcNaEyi7KKSetUHq6TZ21DaXP8dKAsirwH7YBjBba2pCkd2khaMfWUjrDQgvWFvjwC5oSi3xJBCkWpnHLQNwngSAnmS6RmT9Qad9SD1V2aJW",
                 "supply": 10000000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/MIX.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/MIX.png",
+                "socials": 'KleoMixer'
             },
             {
                 "tokenid": "b49031320af0ff6fd2764ec7176687257efe1d491eff1baf315db21f10412c00",
@@ -137,7 +147,8 @@ export default function TokenTable() {
                 "decimals": 9,
                 "circulating_supply_address": "1AxpRjnEpXgbbqKLeH4ZxU14gzzW6Jr87TZKPR5Nmmran",
                 "supply": 100000000,
-                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/MIRA.png"
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/MIRA.png",
+                "socials": 'mira_alephium'
             },
             // {
             //     "tokenid": "11379064c747f89753d493b562130a63caf1a1fc448fcb161e507d2e542c0b00",
@@ -231,7 +242,7 @@ export default function TokenTable() {
             //     "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/WETH.png"
             // }
         ]
-        
+
     );
     const [alphPrice, setAlphPrice] = useState(0);
     const [tokenPrices, setTokenPrices] = useState<TokenPriceInfo[]>([]);
@@ -368,124 +379,127 @@ export default function TokenTable() {
     return (
         <>
 
-        <div className="max-w-4xl px-4 sm:px-6 mx-auto" style={{ display: 'flex', width: '100%', textAlign: 'center', margin: 'auto', }}>
-          
-        <div style={{ margin: 'auto 0px auto auto' }}>
-            {/* <label className="inline-flex items-center mb-5 cursor-pointer mr-12">
+            <div className="max-w-4xl px-4 sm:px-6 mx-auto" style={{ display: 'flex', width: '100%', textAlign: 'center', margin: 'auto', }}>
+
+                <div style={{ margin: 'auto 0px auto auto' }}>
+                    {/* <label className="inline-flex items-center mb-5 cursor-pointer mr-12">
                 <input type="checkbox" value={simplePricingChecked} onChange={() => setSimplePricingChecked(!simplePricingChecked)} className="sr-only peer" />
                 <div className="relative w-9 h-5 bg-gray-300/50  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-orange-300"></div>
                 <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Simple</span>
             </label>  */}
 
-            <label className="inline-flex items-center mb-5 cursor-pointer">
-                <input type="checkbox" value={alphPricingChecked.toString()} onChange={() => setalphPricingChecked(!alphPricingChecked)} className="sr-only peer" 
-                
-                />
-                <p className="me-2 text-sm font-medium text-gray-900 dark:text-gray-300 font-semibold">{alphPricingChecked ? "ℵALPH" : '$USD'}</p>
+                    <label className="inline-flex items-center mb-5 cursor-pointer">
+                        <input type="checkbox" value={alphPricingChecked.toString()} onChange={() => setalphPricingChecked(!alphPricingChecked)} className="sr-only peer"
 
-                <div className="relative w-9 h-5 bg-gray-200  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-orange-300"></div>
-            </label> 
-            </div>
+                        />
+                        <p className="me-2 text-sm font-medium text-gray-900 dark:text-gray-300 font-semibold">{alphPricingChecked ? "ℵALPH" : '$USD'}</p>
+
+                        <div className="relative w-9 h-5 bg-gray-200  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-orange-300"></div>
+                    </label>
+                </div>
             </div>
 
-                <div className="max-w-4xl px-4 sm:px-6 mx-auto" style={{ margin: 'auto', width: 'auto' }}>
-                    <div className="relative overflow-x-auto shadow-md rounded-lg">
-                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead className="text-xs text-gray-800 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-300">
-                                <tr>
-                                    <th scope="col" className="px-6 py-3">
-                                        Token
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        USD
-                                    </th>
-                                    {/* <th scope="col" className="px-6 py-3">
+            <div className="max-w-4xl px-4 sm:px-6 mx-auto" style={{ margin: 'auto', width: 'auto' }}>
+                <div className="relative overflow-x-auto shadow-md rounded-lg">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs text-gray-800 uppercase bg-slate-50 dark:bg-gray-700 dark:text-gray-300">
+                            <tr>
+                                <th scope="col" className="px-6 py-3 sticky">
+                                    Token
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    USD
+                                </th>
+                                {/* <th scope="col" className="px-6 py-3">
                         Price ALPH
                     </th> */}
+                                <th scope="col" className="px-6 py-3">
+                                    Market Cap
+                                </th>
+
+
+                                <>
                                     <th scope="col" className="px-6 py-3">
-                                        Market Cap
+                                        Circulating Supply
                                     </th>
+                                    <th scope="col" className="px-6 py-3">
+                                        Total Supply
+                                    </th>
+                                    <th scope="col" className="px-6 py-3">
+                                        Social
+                                    </th>
+                                </>
 
-                                    {
-                                        windowWidth && windowWidth > 800 ?
-                                            <>
-                                                <th scope="col" className="px-6 py-3">
-                                                    Circulating Supply
-                                                </th>
-                                                <th scope="col" className="px-6 py-3">
-                                                    Total Supply
-                                                </th>
-                                                <th scope="col" className="px-6 py-3">
-                                                    Website
-                                                </th>
-                                            </>
-                                            :
-                                            null
-                                    }
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tokenPrices.map((token, index) => (
-                                    <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th className="px-6 py-4 text-gray-600 dark:text-gray-400">
-                                            <div style={{ display: 'flex' }}>
-                                                <img className="w-6 h-6 rounded-full flex me-2" src={token.logoURI} alt="sym" />
-                                                {token.symbol}
-                                            </div>
-                                        </th>
-                                        <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {tokenPrices.map((token, index) => (
+                                <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th className="px-6 py-4 text-gray-600 dark:text-gray-400">
+                                        <div style={{ display: 'flex' }}>
+                                            <img className="w-6 h-6 rounded-full flex me-2" src={token.logoURI} alt="sym" />
+                                            {token.symbol}
+                                        </div>
+                                    </th>
+                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
 
-                                            {
-                                                alphPricingChecked ?
-                                                    `ℵ${token.pricePerAlph.toFixed(4)}`
-                                                    :
-                                                    `$${token.priceInUSD?.toFixed(3) ?? 'N/A'}`
-                                            }
+                                        {
+                                            alphPricingChecked ?
+                                                `ℵ${token.pricePerAlph.toFixed(4)}`
+                                                :
+                                                `$${token.priceInUSD?.toFixed(3) ?? 'N/A'}`
+                                        }
 
-                                    
-                                        </th>
-                                        {/* <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+
+                                    </th>
+                                    {/* <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
                             ℵ{token.pricePerAlph.toFixed(4)}
                         </th> */}
+                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                        {
+                                            token.circulating_supply_address ?
+                                                `$${numberWithCommas(((Number(token.priceInUSD) || 0) * (Number(token.circulatingSupply) || 0)))}`
+                                                :
+                                                'TBA'
+                                        }
+                                    </th>
+
+
+                                    <>
+
                                         <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
                                             {
                                                 token.circulating_supply_address ?
-                                                    `$${numberWithCommas(((Number(token.priceInUSD) || 0) * (Number(token.circulatingSupply) || 0)))}`
+                                                    <>
+                                                        {numberWithCommas(token.circulatingSupply)}
+                                                    </>
                                                     :
                                                     'TBA'
                                             }
                                         </th>
+                                        <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
+                                            {token.supply ? numberWithCommas(token.supply) : 'N/A'}
+                                        </th>
 
-                                        {
-                                            windowWidth && windowWidth > 800 ?
-                                                <>
+                                        <th scope="col" className="px-6 py-3 text-cyan-600 dark:text-cyan-400">
 
-                                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                                        {
-                                                            token.circulating_supply_address ?
-                                                                <>
-                                                                    {numberWithCommas(token.circulatingSupply)}
-                                                                </>
-                                                                :
-                                                                'TBA'
-                                                        }
-                                                    </th>
-                                                    <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                                        {token.supply ? numberWithCommas(token.supply) : 'N/A'}
-                                                    </th>
-                                                    <th scope="col" className="px-6 py-3">
-                                                        Website
-                                                    </th>
-                                                </>
-                                                :
-                                                null
-                                        }
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
- 
+                                            {
+                                                token.socials === 'N/A' ?
+                                                    'N/A'
+                                                    :
+                                                    <a href={"https://twitter.com/" + token.socials} target="_blank">@{token.socials}</a>
+                                            }
+
+                                           
+                                        </th>
+                                    </>
+
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
         </>
