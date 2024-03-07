@@ -7,7 +7,7 @@ Note: This code includes an example of how to fetch data from an external JSON f
 import getAllPosts from "@/lib/getAllPosts";
 export const metadata = {
   title: "AlphWiki - Tools",
-  description: "Page description",
+  description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
 import PageHeaderAlt from "@/components/page-header-alt";

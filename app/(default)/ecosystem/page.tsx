@@ -8,7 +8,7 @@ import getAllPosts from "@/lib/getAllPosts";
 
 export const metadata = {
   title: "AlphWiki - Ecosystem",
-  description: "Page description",
+  description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
 import PageHeaderAlt from "@/components/page-header-alt";
@@ -18,7 +18,7 @@ import Posts from "@/app/(default)/updates/posts";
 export default async function Ecosystem() {
   const postsData: Promise<Post[]> = getAllPosts();
   const posts = await postsData;
-
+  Cta
   return (
     <>
       <section>

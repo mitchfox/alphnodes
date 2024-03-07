@@ -9,14 +9,15 @@ export default function Footer() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center py-8">
             <p className="text-sm text-gray-700 dark:text-gray-400">
-              © ALPHWIKI - Building on a chain of builders. Built by{" "}
-              <a
+              © ALPHWIKI - Building on a chain of builders. 
+              {/* Built by{" "} */}
+              {/* <a
                 className="font-medium text-cyan-500 hover:underline"
                 href="https://www.linkedin.com/in/mitch-fox"
                 target="_blank"
               >
                 @mitch
-              </a>{" "}
+              </a>{" "} */}
               {/* &amp;{" "}
               <a
                 className="font-medium text-cyan-500 hover:underline"

@@ -24,6 +24,7 @@ interface Token {
     supply?: number;
     circulating_supply_address?: string;
     symbol: string;
+    fully_diluted?: boolean;
     // Add other properties as needed
 }
 
@@ -35,6 +36,7 @@ interface TokenPriceInfo extends Token {
     circulatingSupply: number;
     logoURI: string;
     priceInUSD?: number;
+    socials: string
 }
 
 
@@ -62,7 +64,8 @@ export default function TokenTable() {
                 "supply": 161803,
                 "decimals": 9,
                 "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/ALF.png",
-                "socials": 'N/A'
+                "socials": 'TBA',
+                "fully_diluted": true
             },
             {
                 "tokenid": "b522184377a33e376e997a950288fa76c1f48e97bc29cd10779adc7cfb673200",
@@ -71,7 +74,7 @@ export default function TokenTable() {
                 "decimals": 0,
                 "supply": 10000,
                 "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/BERRY.png",
-                "socials": 'N/A'
+                "socials": 'TBA'
             },
             {
                 "tokenid": "7da28936499f56ffed497fe7eba856aa85eeb943bab2478e36f7020d89cd2400",
@@ -81,7 +84,7 @@ export default function TokenTable() {
                 "circulating_supply_address": "1GDegYLQDXFwDBwMnjTzZXGXW4vYoxxwPKEHNAf8smquV",
                 "supply": 999999,
                 "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/VLAD.png",
-                "socials": 'N/A'
+                "socials": 'TBA'
             },
             {
                 "tokenid": "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002",
@@ -99,12 +102,13 @@ export default function TokenTable() {
                 "decimals": 0,
                 "supply": 69000000,
                 "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/TAIL.png",
-                "socials": 'N/A'
+                "socials": 'TBA'
             },
             {
                 "tokenid": "df3008f43a7cc1d4a37eef71bf581fc4b9c3be4e2d58ed6d1df483bbb83bd200",
                 "contractid": "21nj6sBTtQfTwCErYAHF3CNBaDRAc1E1Q3aUCcbsuG8mu",
                 "symbol": "NGU",
+                "circulating_supply_address": "21nj6sBTtQfTwCErYAHF3CNBaDRAc1E1Q3aUCcbsuG8mu",
                 "decimals": 7,
                 "supply": 7777777,
                 "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/NGU.png",
@@ -149,6 +153,69 @@ export default function TokenTable() {
                 "supply": 100000000,
                 "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/MIRA.png",
                 "socials": 'mira_alephium'
+            },
+            {
+                "tokenid": "55cdaa051f83c408f128ca8888b58bb685ed9974997cc902821b69e352915f00",
+                "contractid": "zTtf5oLLSWcHuSbWcUW3k9PjrD1nBeJAEejZPZrwBhbV",
+                "symbol": "DRAGON",
+                "decimals": 8,
+                "supply": 8888888,
+                "circulating_supply_address": "zTtf5oLLSWcHuSbWcUW3k9PjrD1nBeJAEejZPZrwBhbV",
+                "description": "The Dragon Awakens",
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/DRAGON.png",
+                "socials": 'TBA'
+            },
+            {
+                "tokenid": "f79530d767a13ff4baef0870f18adfd17c7b418edd214f89b53ce24df62acf00",
+                "symbol": "GRAPE",
+                "contractid": "2BMQkyyX5ktLQRcWdLP4PiQcfxxHHUJusvqpQS8fMoozo",
+                "decimals": 9,
+                "circulating_supply_address": "2BMQkyyX5ktLQRcWdLP4PiQcfxxHHUJusvqpQS8fMoozo",
+                "supply": 21000000,
+                "description": "Graping charts and ravishing fruity maidens on Alephium blockchain | https://grapecoin.lol | https://t.me/grapecoincommunity",
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/GRAPE.png",
+                "socials": 'TBA'
+            },
+            {
+                "tokenid": "d291da74b47ba566ae1fb0aee11ec571a24e7c184b0a43c32c93ea9f5df87600",
+                "symbol": "NGD",
+                "contractid": "28rvisHx5bQvCRS97gmrmzVqxaCH5FckY2FrTxfJ1A8uu",
+                "decimals": 6,
+                // "circulating_supply_address": "28rvisHx5bQvCRS97gmrmzVqxaCH5FckY2FrTxfJ1A8uu",
+                "supply": 666666.6667,
+                "description": "You Buy, Number Go Down. You Sell, Number Go Down",
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/NGD.png",
+                "socials": 'TBA'
+            },
+            {
+                "tokenid": "18ee870cfaa976627c4c6fa183ccbea869edd9db89ad4ae0ec7dbd52ac753100",
+                "symbol": "TROLL",
+                "contractid": "vNGrPmDmj3sCK87BDt7kzQB2AG7ounLp57kCDY8bgMkT",
+                "decimals": 9,
+                "supply": 6000000,
+                "description": "Elon's fav meme on Alephium! Chief Troll Officer. Trollface vibes, community-driven fun. Follow us: https://twitter.com/troll_alph",
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/TROLL.png",
+                "socials": 'TBA'
+            },
+            {
+                "tokenid": "11bf07230f5607f626773044414a196d0471d79ba9abc26f148b57b40d983a00",
+                "symbol": "TOP",
+                "contractid": "utDzMDHq8fygNzqZjCgRjhJbj1Rew14ExohxngeRKA1D",
+                "decimals": 6,
+                "description": "It's over. this coin is a crazy crazy coin up only. This coin reminds me of the great SHIBA. I literally am holding on to dear life with this f ing coin",
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/TOP.png",
+                "socials": 'TBA'
+            },
+            {
+                "tokenid": "b3e354fb095fffe3d5fe0431ef6209604323f9d3db069e008d9e8aeacaa30800",
+                "contractid": "26oA9K7Ewxzy23sWBBkzHstSTi1bQi4EWyeuu5acJsYjZ",
+                "symbol": "Noodz",
+                "decimals": 0,
+                "supply": 69420000000,
+                "circulating_supply_address": "17LG6JZa42HXUAeouX3xAEJUeTTX4SpZMDT1AMKUJBFvp",
+                "description": "Send Noodz!",
+                "logoURI": "https://raw.githubusercontent.com/alephium/token-list/master/logos/Noodz.png",
+                "socials": 'TBA'
             },
             // {
             //     "tokenid": "11379064c747f89753d493b562130a63caf1a1fc448fcb161e507d2e542c0b00",
@@ -281,12 +348,14 @@ export default function TokenTable() {
                     return 0;
                 });
 
-            return supply - remainingSupply / Math.pow(10, decimals);
+            const adjustedRemainingSupply = decimals !== 0 ? remainingSupply / Math.pow(10, decimals) : remainingSupply;
+            return supply - adjustedRemainingSupply;
         } catch (error) {
             console.error(error);
             return 0;
         }
     }
+
 
     //  GET TOKEN PRICES & CALCULATE MARKET CAP ETC..
     const getTokenPrices = async (contractid: string, tokenid: string, decimals: number, alphPrice: number, symbol: string,) => {
@@ -296,14 +365,15 @@ export default function TokenTable() {
                 fetch(`${BACKEND_BASEURL}/addresses/${contractid}/balance`).then(resp => resp.json())
             ]);
 
-            // 
-            const tokenBalance = parseFloat(tokenResponse.balance) / Math.pow(10, decimals);
+            const tokenBalance = decimals !== 0 ? parseFloat(tokenResponse.balance) / Math.pow(10, decimals) : parseFloat(tokenResponse.balance);
             const alphBalance = parseFloat(alphResponse.balance) / Math.pow(10, ALPH_DECIMALS);
-            // console.log(symbol, tokenBalance, alphBalance);
 
-            // Calc alph price & usd
-            const pricePerAlph = alphBalance / tokenBalance;
+            const pricePerAlph = tokenBalance !== 0 ? alphBalance / tokenBalance : 0; // Prevent division by zero
             const priceInUSD = pricePerAlph * alphPrice;
+
+            if (symbol === 'Noodz') {
+                console.log('Noodz', alphBalance, tokenBalance);
+            }
 
             return [pricePerAlph, priceInUSD];
         } catch (error) {
@@ -311,6 +381,7 @@ export default function TokenTable() {
             throw new Error('Failed to fetch price for token');
         }
     }
+
 
 
 
@@ -326,11 +397,20 @@ export default function TokenTable() {
                     const [pricePerAlph, priceInUSD] = await getTokenPrices(contractid, tokenid, decimals, alphPrice, symbol);
                     let circulatingSupply = undefined;
                     let supply = token.supply || 0;
-                    if (circulating_supply_address) {
-                        circulatingSupply = await getCirculatingSupply(token.supply, circulating_supply_address, tokenid, decimals);
+
+                    // console.log(token.symbol, token.supply)
+
+                    if (token.fully_diluted === true) {
+                        circulatingSupply = token.supply;
+                        // console.log('Alf supply-' , token.supply);
+                    } else {
+                        if (circulating_supply_address) {
+                            circulatingSupply = await getCirculatingSupply(token.supply, circulating_supply_address, tokenid, decimals);
+                        }
                     }
                     return { ...token, pricePerAlph, priceInUSD, circulatingSupply, supply };
                 }));
+
 
                 // Sort tokens by market cap
                 const sortedTokenPrices = tokenPrices.slice().sort((a, b) => {
@@ -443,11 +523,23 @@ export default function TokenTable() {
                                     </th>
                                     <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
 
+
+
+
                                         {
-                                            alphPricingChecked ?
-                                                `ℵ${token.pricePerAlph.toFixed(4)}`
+                                            token.pricePerAlph === 0 ?
+                                                'TBA'
                                                 :
-                                                `$${token.priceInUSD?.toFixed(3) ?? 'N/A'}`
+                                                <>
+                                                    {
+                                                        alphPricingChecked ?
+                                                            `ℵ${token.pricePerAlph.toFixed(4)}`
+                                                            :
+                                                            `$${token.priceInUSD?.toFixed(3) ?? 'TBA'}`
+                                                    }
+                                                </>
+
+
                                         }
 
 
@@ -456,12 +548,19 @@ export default function TokenTable() {
                             ℵ{token.pricePerAlph.toFixed(4)}
                         </th> */}
                                     <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                        {
-                                            token.circulating_supply_address ?
+                                    {
+                                            token.priceInUSD === 0 ?
+                                                'TBA'
+                                                :
+                                                <>
+                                                    {
+                                            token.circulating_supply_address || token.fully_diluted === true ?
                                                 `$${numberWithCommas(((Number(token.priceInUSD) || 0) * (Number(token.circulatingSupply) || 0)))}`
                                                 :
                                                 'TBA'
                                         }
+                                        </>
+}
                                     </th>
 
 
@@ -469,7 +568,7 @@ export default function TokenTable() {
 
                                         <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
                                             {
-                                                token.circulating_supply_address ?
+                                                token.circulating_supply_address || token.fully_diluted === true ?
                                                     <>
                                                         {numberWithCommas(token.circulatingSupply)}
                                                     </>
@@ -478,19 +577,19 @@ export default function TokenTable() {
                                             }
                                         </th>
                                         <th scope="row" className="px-6 py-3 text-gray-600 dark:text-gray-400">
-                                            {token.supply ? numberWithCommas(token.supply) : 'N/A'}
+                                            {token.supply ? numberWithCommas(token.supply) : 'TBA'}
                                         </th>
 
                                         <th scope="col" className="px-6 py-3 text-cyan-600 dark:text-cyan-400">
 
                                             {
-                                                token.socials === 'N/A' ?
-                                                    'N/A'
+                                                token.socials === 'TBA' ?
+                                                    'TBA'
                                                     :
                                                     <a href={"https://twitter.com/" + token.socials} target="_blank">@{token.socials}</a>
                                             }
 
-                                           
+
                                         </th>
                                     </>
 
@@ -500,6 +599,7 @@ export default function TokenTable() {
                     </table>
                 </div>
 
+                <p style={{ fontSize: '12px' }} className="px-0 uppercase py-3 font-xs text-gray-600 dark:text-gray-400 font-bold">TBA: to be added</p>
             </div>
 
         </>

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Creative",
-  description: "Page description",
+  title: "AlphWiki - Home",
+  description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
 import PageHeader from "@/components/page-header";

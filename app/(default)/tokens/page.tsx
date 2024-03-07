@@ -7,8 +7,8 @@ Note: This code includes an example of how to fetch data from an external JSON f
 import TokenTable from "./token-table";
 
 export const metadata = {
-  title: "AlphWiki - Tools built on Alephium",
-  description: "Page description",
+  title: "AlphWiki - Tokens",
+  description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
 
@@ -41,7 +41,7 @@ export default async function Updates() {
 
     
       {/* <Posts posts={posts} /> */}
-      <Cta />
+      {/* <Cta /> */}
     </>
   );
 }
