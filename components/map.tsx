@@ -155,8 +155,8 @@ export default function Map() {
                                 fontSize: '13px',
                                 display: 'flex' 
                             }}>
-                                <p>IP: {activePin.data.split(", ")[0].split(": ")[1]}</p>
-                                <p>Client: {activePin.data.split(", ")[1].split(": ")[1]}</p>
+                                <p style={{ marginRight: '10px' }}>IP: {activePin.data.split(", ")[0].split(": ")[1]}</p>
+                                <p style={{ marginRight: '10px' }}>Client: {activePin.data.split(", ")[1].split(": ")[1]}</p>
                                 <p>Country: {activePin.data.split(", ")[2].split(": ")[1]}</p>
                             </div>
                         </Fade>

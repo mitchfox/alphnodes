@@ -1,53 +1,187 @@
-import Link from 'next/link'
-import Image, { StaticImageData } from 'next/image'
+'use client';
 
-interface Item {
-  id: number
-  icon: StaticImageData
-  slug: string
-  title: string
-  excerpt: string
-  comingSoon?: boolean
+import React, { useEffect, useRef } from "react";
+import ApexCharts from 'apexcharts';
+
+const getChartOptions = (data: number[], labels: string[]) => {
+  console.log(labels);
+  return {
+    series: data,
+    // colors: [
+    //   "#86efac", // green-300
+    //   "#4ADE80", // green-400
+    //   "#22C55E", // green-500
+    //   "#16A34A", // green-600
+    //   "#15803D", // green-700
+    //   "#166534", // green-800
+    //   "#14532d", // green-900
+    //   "#60A5FA", // blue-400
+    //   "#3B82F6", // blue-500
+    //   "#2563EB", // blue-600
+    //   "#1D4ED8", // blue-700
+    //   "#3F83F8", // custom blue
+    //   "#A5B4FC",  // indigo-300
+    //   "#FDBA74", // orange-300
+    //   "#FB923C", // orange-400
+    //   "#F97316", // orange-500
+    // ]
+    colors: [
+      "#ef4444", // red-600
+      "#D97706", // amber-600
+      "#F59E0B", // yellow-500
+      "#84CC16", // lime-500
+      "#4ADE80", // green-300
+      "#22C55E", // green-400
+      "#10B981", // green-500
+      "#1D4ED8", // blue-700
+      "#2563EB", // blue-600
+      "#3B82F6", // blue-500
+      "#7C3AED", // purple-700
+      "#9333EA", // purple-600
+      "#C026D3", // purple-500
+      "#E74694", // custom pink
+      "#EC4899", // pink-500
+      "#f87171", // red-500
+      "#F97316", // orange-500
+      "#FB923C", // orange-400
+      "#FBBF24", // amber-400
+      "#FACC15"  // yellow-400
+    ]
+    
+    ,
+
+
+    chart: {
+      height: 320,
+      width: "100%",
+      type: "donut",
+    },
+    stroke: {
+      colors: ["transparent"],
+      lineCap: "",
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          labels: {
+            show: true,
+            name: {
+              show: true,
+              color: "#96A5BA",
+              fontFamily: "Inter, sans-serif",
+              offsetY: 20,
+            },
+            total: {
+              showAlways: true,
+              show: true,
+              label: "Total",
+              color: "#96A5BA",
+              fontFamily: "Inter, sans-serif",
+              formatter: function (w: any) {
+                const sum = w.globals.seriesTotals.reduce((a: number, b: number) => {
+                  return a + b;
+                }, 0);
+                return sum;
+              },
+            },
+            value: {
+              show: true,
+              color: "#96A5BA",
+              fontFamily: "Inter, sans-serif",
+              offsetY: -20,
+              formatter: function (value: number) {
+                return value;
+              },
+            },
+          },
+          size: "80%",
+        },
+      },
+    },
+    grid: {
+      padding: {
+        top: -2,
+      },
+    },
+    labels: labels, // Use country names as labels
+    color: "#96A5BA",
+    dataLabels: {
+      color: "#96A5BA",
+      enabled: false,
+    },
+    legend: {
+      position: "bottom",
+      fontFamily: "Inter, sans-serif",
+    },
+    yaxis: {
+      color: "#96A5BA",
+      labels: {
+        color: "#96A5BA",
+        formatter: function (value: number) {
+          return value;
+        },
+      },
+    },
+    xaxis: {
+      color: "#96A5BA",
+      labels: {
+        color: "#96A5BA",
+        formatter: function (value: number) {
+          return value;
+        },
+      },
+      axisTicks: {
+        show: false,
+      },
+      axisBorder: {
+        show: false,
+      },
+    },
+  };
+};
+
+interface CardProps {
+  item: {
+    id: number;
+    title: string;
+    description: string;
+    data: number[];
+    labels: string[];
+    comingSoon?: boolean;
+  };
 }
 
-interface ItemProps { 
-  item: Item
-}
+const Card: React.FC<CardProps> = ({ item }) => {
+  const chartRef = useRef<HTMLDivElement>(null);
 
-export default function Card({ item }: ItemProps) {
+  useEffect(() => {
+    let chart: ApexCharts | null = null;
+
+    if (chartRef.current) {
+      console.log(item.labels);
+      const options = getChartOptions(item.data, item.labels);
+      chart = new ApexCharts(chartRef.current, options);
+      chart.render();
+    }
+
+    return () => {
+      if (chart) {
+        chart.destroy();
+      }
+    };
+  }, [item.data, item.labels]);
+
   return (
-    <Link 
-      className="rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 dark:bg-gradient-to-t dark:from-slate-900 dark:to-slate-800 bg-white transition-color ease-in-out p-6 group" 
-      href={item.slug}
-    >
-      <div className="flex flex-col h-full">
-        <div className="grow">
-   
-
-          {/* New content */}
-
-            <div className="flex justify-between items-start w-full">
-              <div className="flex-col items-center">
-                <div className="flex items-center mb-1">
-                  <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">{item.title}</h5>
-                  {/* <svg data-popover-target="chart-info" data-popover-placement="bottom" className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z"/>
-                  </svg> */}
-             
-                </div>
-              </div>
-              
-           
-            </div>
-        
-
-
-          {/* Line Chart */}
-          <div className="py-6" id="pie-chart"></div>
-
-       
+    <div className="max-w-md w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+      <div className="flex justify-between mb-3">
+        <div className="flex justify-center items-center">
+          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">{item.title}</h5>
         </div>
       </div>
-    </Link>
-  )
-}
+
+      <div className="py-6" id="donut-chart" ref={chartRef}></div>
+    </div>
+  );
+};
+
+export default Card;

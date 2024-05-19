@@ -111,9 +111,11 @@ export default function Header() {
                       </Link>
                     </li>
                     <li className="items-center py-4">
+                      {/* https://docs.alephium.org/full-node/getting-started/ */}
                       <Link
+                      href="https://docs.alephium.org/full-node/getting-started/" rel="noopener noreferrer" target="_blank"
                         className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/launch"
+                        
                       >
                         Launch a Node
                       </Link>
@@ -186,7 +188,7 @@ export default function Header() {
                     <li>
                       <Link
                         className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/launch"
+                        href="https://docs.alephium.org/full-node/getting-started/" rel="noopener noreferrer" target="_blank"
                       >
                         Launch a Node
                       </Link>

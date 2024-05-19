@@ -24,7 +24,7 @@ export default async function Ecosystem() {
               title="Statistics"
               description="From Data to Insights, explore the Alephium ecosystem under the hood."
             >
-              Ecosystem
+              Stats
             </PageHeaderAlt>
     
           </div>

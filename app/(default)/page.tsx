@@ -14,12 +14,12 @@ export default function Home() {
 
   return (
     <section>
-      <div className="pt-32 pb-12 md:pt-24 md:pb-20">
+      <div className="pt-12 pb-12 md:pt-24 md:pb-20">
         <div className="px-4 sm:px-6 ">
 
           {/* MAP HERE */}
           <div style={{ height: 'auto', margin: 'auto', display: 'flex' }}>
-            <div style={{ margin: 'auto' ,  width: '90%', maxWidth: '1200px', 
+            <div style={{ margin: 'auto' ,  width: '100%', maxWidth: '1200px', 
             // maxHeight: '600px'
             }}>
             <Map />
