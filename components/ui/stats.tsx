@@ -10,12 +10,12 @@ export default function Stats() {
 
   const stats: StatProps[] = [
     {
-      number: 476,
+      number: 41,
       suffix: '',
       text: 'Total Nodes on Alephium Network.',
     },
     {
-      number: 45,
+      number: 16,
       suffix: '+',
       text: 'Countries Supporting Alephium',
     },

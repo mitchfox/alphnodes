@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import ApexCharts from 'apexcharts';
 
-const getChartOptions = (data: number[], labels: string[]) => {
+const getChartOptions = (data: number[], labels: string[], id: string) => {
   console.log(labels);
   return {
     series: data,
@@ -78,10 +78,19 @@ const getChartOptions = (data: number[], labels: string[]) => {
               color: "#96A5BA",
               fontFamily: "Inter, sans-serif",
               formatter: function (w: any) {
-                const sum = w.globals.seriesTotals.reduce((a: number, b: number) => {
-                  return a + b;
-                }, 0);
-                return sum;
+
+
+                if (id === '1') {
+                  const sum = w.globals.seriesTotals.reduce((a: number, b: number) => {
+                    return a + b;
+                  }, 0);
+                  return sum;
+                
+                } else {
+                  return labels.length
+                }
+                
+                
               },
             },
             value: {
@@ -159,7 +168,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
 
     if (chartRef.current) {
       console.log(item.labels);
-      const options = getChartOptions(item.data, item.labels);
+      const options = getChartOptions(item.data, item.labels, item.id);
       chart = new ApexCharts(chartRef.current, options);
       chart.render();
     }

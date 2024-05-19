@@ -35,14 +35,14 @@ export default function CardLinks() {
 
   const segments = [
     {
-      id: 0,
+      id: '0',
       title: 'Countries',
       description: 'Count of nodes by country.',
       data: countries.map(c => c.count),
       labels: countries.map(c => c.name),
     },
     {
-      id: 1,
+      id: '1',
       title: 'Versions',
       description: 'Count of nodes by client version.',
       comingSoon: true,
