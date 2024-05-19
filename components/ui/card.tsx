@@ -17,25 +17,35 @@ interface ItemProps {
 export default function Card({ item }: ItemProps) {
   return (
     <Link 
-    className="rounded-lg border border-slate-200 hover:border-slate-300 dark:border-cyan-800 dark:hover:border-cyan-700 dark:bg-gradient-to-t dark:from-cyan-900 dark:to-cyan-900/90  
-            bg-white transition-color ease-in-out p-6 group shadow " href={item.slug}>
+      className="rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 dark:bg-gradient-to-t dark:from-slate-900 dark:to-slate-800 bg-white transition-color ease-in-out p-6 group" 
+      href={item.slug}
+    >
       <div className="flex flex-col h-full">
         <div className="grow">
-          <div className="flex items-center justify-between space-x-2">
-            <div className="h-10 w-10 flex items-center justify-center border border-cyan-200 dark:border-cyan-700 rounded-full mb-2">
-              <Image src={item.icon} width={18} alt={item.title} />
+   
+
+          {/* New content */}
+
+            <div className="flex justify-between items-start w-full">
+              <div className="flex-col items-center">
+                <div className="flex items-center mb-1">
+                  <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">{item.title}</h5>
+                  {/* <svg data-popover-target="chart-info" data-popover-placement="bottom" className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z"/>
+                  </svg> */}
+             
+                </div>
+              </div>
+              
+           
             </div>
-            {item.comingSoon && (
-              <div className="text-xs inline-flex items-center font-medium bg-cyan-100 text-cyan-600 rounded-full text-center px-2 h-5">Coming Soon</div>
-            )}
-          </div>
-          <div className="text-lg font-aspekta font-[650] mb-1">{ item.title }</div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">{ item.excerpt }</p>
-        </div>
-        <div className="text-cyan-500 flex justify-end">
-          <svg className="fill-current -rotate-45 group-hover:rotate-0 transition-transform ease-out" xmlns="http://www.w3.org/2000/svg" width="14" height="12">
-            <path d="M9.586 5 6.293 1.707 7.707.293 13.414 6l-5.707 5.707-1.414-1.414L9.586 7H0V5h9.586Z" />
-          </svg>
+        
+
+
+          {/* Line Chart */}
+          <div className="py-6" id="pie-chart"></div>
+
+       
         </div>
       </div>
     </Link>

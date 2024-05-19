@@ -13,8 +13,11 @@ export default function DefaultLayout({
 }) {
   return (
     <>
-      <VerticalLines />
+      {/* <VerticalLines /> */}
+      <div style={{ opacity: '0.3' }}>
       <BgShapes />
+      </div>
+
       <Header />
 
       <main className="grow">{children}</main>

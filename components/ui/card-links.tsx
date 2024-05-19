@@ -9,6 +9,7 @@ import Icon06 from '@/public/images/project-icon-06.svg'
 import Icon07 from '@/public/images/project-icon-07.svg'
 import Icon08 from '@/public/images/project-icon-08.svg'
 
+
 export default function CardLinks() {
 
 //   const items01 = [
@@ -35,7 +36,7 @@ export default function CardLinks() {
         id: 0,
         icon: Icon01,
         slug: 'tokens',
-        title: 'Tokens',
+        title: 'Countries',
         excerpt: 'Solutions for running containers locally and remotely.',
         comingSoon: false,
       },
@@ -86,7 +87,7 @@ export default function CardLinks() {
 
       { /* Middle area */}
       <div className="grow" >
-        <div className="max-w-4xl" style={{ margin: 'auto' }}>
+        <div className="max-w-5xl" style={{ margin: 'auto' }}>
 
           <section>
             {/* Page content */}

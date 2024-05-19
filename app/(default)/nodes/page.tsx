@@ -4,38 +4,44 @@ Note: This code includes an example of how to fetch data from an external JSON f
 */
 }
 
-import getAllPosts from "@/lib/getAllPosts";
+import TokenTable from "./token-table";
 
 export const metadata = {
-  title: "AlphWiki - Ecosystem",
+  title: "Alph Nodes - Tokens",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
+
 
 import PageHeaderAlt from "@/components/page-header-alt";
 import Cta from "@/components/cta";
 import Posts from "@/app/(default)/updates/posts";
+import TokenList from "@/components/tokenlist";
 
-export default async function Ecosystem() {
-  const postsData: Promise<Post[]> = getAllPosts();
-  const posts = await postsData;
-  Cta
+
+export default async function Updates() {
+
   return (
     <>
       <section>
         <div className="pt-32 pb-12 md:pt-36 md:pb-20">
           <div className="px-4 sm:px-6">
             <PageHeaderAlt
-              title="Coming Soon"
-              description="Big things are coming..."
+              title="Alephium Nodes"
+              description="View a list of statistics from all nodes contributing to the Alephium network."
             >
-              Ecosystem
+              Nodes
             </PageHeaderAlt>
-          </div>
+
         </div>
+        </div>
+
+        <TokenTable />
+    
       </section>
 
-      {/* <Posts posts={posts} />
-      <Cta /> */}
+    
+      {/* <Posts posts={posts} /> */}
+      {/* <Cta /> */}
     </>
   );
 }

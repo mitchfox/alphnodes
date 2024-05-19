@@ -40,7 +40,7 @@ export default function Header() {
     <>
     {
       windowWidth ?
-      <header className="sticky top-4 md:top-6 w-full z-30  pb-4 md:pb-6 [border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.4),transparent)1] dark:[border-image:linear-gradient(to_right,transparent,theme(colors.cyan.300/.16),transparent)1] dark:shadow-none">
+      <header className="sticky top-4 md:top-6 w-full z-30  pb-4 md:pb-6 [border-image:linear-gradient(to_right,transparent,theme(colors.green.300/.4),transparent)1] dark:[border-image:linear-gradient(to_right,transparent,theme(colors.green.300/.16),transparent)1] dark:shadow-none">
       <div className="px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="relative flex items-center justify-between gap-x-2 h-12 rounded-lg px-3
@@ -48,12 +48,12 @@ export default function Header() {
             style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
             {/* Border with dots in corners */}
             <div 
-              className="absolute bg-cyan-500/15 dark:bg-gray-800/50 rounded-sm -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[10px] 
+              className="absolute bg-green-500/15 dark:bg-gray-800/50 rounded-sm -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[10px] 
               before:bg-[length:10px_10px] before:[background-position:top_center,bottom_center] before:bg-no-repeat 
-              before:[background-image:radial-gradient(circle_at_center,theme(colors.cyan.500/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.cyan.500/.56)_1px,transparent_1px)] 
+              before:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1px,transparent_1px)] 
               dark:before:[background-image:radial-gradient(circle_at_center,theme(colors.gray.600/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.gray.600/.56)_1px,transparent_1px)] 
               after:absolute after:inset-y-0 after:right-0 after:w-[10px] after:bg-[length:10px_10px] after:[background-position:top_center,bottom_center] after:bg-no-repeat 
-              after:[background-image:radial-gradient(circle_at_center,theme(colors.cyan.500/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.cyan.500/.56)_1px,transparent_1px)] 
+              after:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1px,transparent_1px)] 
               dark:after:[background-image:radial-gradient(circle_at_center,theme(colors.gray.600/.56)_1px,transparent_1px),radial-gradient(circle_at_center,theme(colors.gray.600/.56)_1px,transparent_1px)]"
 
               aria-hidden="true"
@@ -63,8 +63,8 @@ export default function Header() {
               {/* Logo */}
               <Link href="/" style={{
                 fontWeight: '700', fontSize: '15px'
-              }} className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3">
-                <span style={{ fontSize: '18px' }}>ℵ </span>ALPH<span className="text-cyan-400 italic">WIKI</span>
+              }} className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3">
+                <span style={{ fontSize: '18px' }}>ℵ </span>ALPH<span className="text-green-400 italic"> NODES</span>
 
               </Link>
             </div>
@@ -87,7 +87,7 @@ export default function Header() {
                     <li className="items-center py-4" >
                       <Link
                       style={{ width: '100%', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', zIndex: '9999' }}
-                        className="text-gray-800  dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        className="text-gray-800  dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
                         href="/"
                       >
                         Home
@@ -96,31 +96,31 @@ export default function Header() {
                     <li className="items-center py-4" >
                       <Link
                       style={{ width: '100%', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', zIndex: '9999' }}
-                        className="text-gray-800  dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/tokens"
+                        className="text-gray-800  dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/nodes"
                       >
-                        Tokens
+                        Nodes
                       </Link>
                     </li>
                     <li className="items-center py-4">
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/updates"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/stats"
                       >
-                        Ecosystem
+                        Stats
                       </Link>
                     </li>
                     <li className="items-center py-4">
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/tools"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/launch"
                       >
-                        Tools
+                        Launch a Node
                       </Link>
                     </li>
                     {/* <li className="items-center py-4">
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
                         href="/updates"
                       >
                         Calculator
@@ -128,7 +128,7 @@ export default function Header() {
                     </li>
                     <li className="items-center py-4">
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
                         href="/faq"
                       >
                         FAQ
@@ -136,7 +136,7 @@ export default function Header() {
                     </li>
                     <li className="items-center py-4">
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
                         href="/contact"
                       >
                         Support
@@ -145,7 +145,7 @@ export default function Header() {
                     <li className="items-center py-4">
                       <div
                         onClick={() => toggleMenu()}
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
                   
                       >
                         Close
@@ -169,31 +169,31 @@ export default function Header() {
                   <ul className="flex items-center sm:gap-x-3 text-sm font-medium">
                     <li>
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/tokens"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/nodes"
                       >
-                        Tokens
+                        Nodes
                       </Link>
                     </li>
                     <li>
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/ecosystem"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/stats"
                       >
-                        Ecosystem
+                        Stats
                       </Link>
                     </li>
                     <li>
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
-                        href="/tools"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                        href="/launch"
                       >
-                        Tools
+                        Launch a Node
                       </Link>
                     </li>
                     {/* <li>
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
                         href="/faq"
                       >
                         FAQ
@@ -201,7 +201,7 @@ export default function Header() {
                     </li>
                     <li>
                       <Link
-                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-cyan-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
+                        className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 transition-colors py-1.5 px-3"
                         href="/contact"
                       >
                         Support

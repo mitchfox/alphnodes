@@ -9,18 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@alephium/token-list": "^0.0.15",
     "@alephium/web3": "v0.21.2",
     "@alephium/web3-react": "v0.21.2",
-    "@alephium/token-list": "^0.0.15",
     "@headlessui/react": "^1.7.17",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
+    "apexcharts": "^3.49.1",
+    "dotted-map": "^2.2.3",
     "next": "^14.0.3",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
+    "react-apexcharts": "^1.4.1",
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
+    "react-reveal": "^1.2.2",
     "typescript": "^5.3.3"
   },
   "devDependencies": {

@@ -20,7 +20,7 @@ const inter_tight = Inter_Tight({
 });
 
 export const metadata = {
-  title: "AlphWiki",
+  title: "Alph Nodes",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
@@ -35,7 +35,7 @@ export default function RootLayout({
      
 
       <body
-        className={`${inter.variable} ${inter_tight.variable} font-inter antialiased bg-cyan-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 tracking-tight`}
+        className={`${inter.variable} ${inter_tight.variable} font-inter antialiased bg-slate-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 tracking-tight`}
       >
         {/* <AlephiumWalletProvider useTheme="win95"> */}
           <Theme>
