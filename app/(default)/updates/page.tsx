@@ -4,7 +4,6 @@ Note: This code includes an example of how to fetch data from an external JSON f
 */
 }
 
-import getAllPosts from "@/lib/getAllPosts";
 export const metadata = {
   title: "Alph Nodes - Updates",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
@@ -15,8 +14,6 @@ import Cta from "@/components/cta";
 import Posts from "@/app/(default)/updates/posts";
 
 export default async function Updates() {
-  const postsData: Promise<Post[]> = getAllPosts();
-  const posts = await postsData;
 
   return (
     <>

@@ -1,5 +1,4 @@
 
-import getAllPosts from "@/lib/getAllPosts";
 import CardLinks from "@/components/ui/card-links";
 
 export const metadata = {
@@ -8,12 +7,9 @@ export const metadata = {
 };
 
 import PageHeaderAlt from "@/components/page-header-alt";
-// import Cta from "@/components/cta";
-// import Posts from "@/app/(default)/updates/posts";
 
 export default async function Ecosystem() {
-  const postsData: Promise<Post[]> = getAllPosts();
-  const posts = await postsData;
+
   return (
     <>
       <section>
