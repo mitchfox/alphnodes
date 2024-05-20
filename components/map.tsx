@@ -101,7 +101,11 @@ export default function Map() {
                                         opacity: typeof point.data === "string" ? 1 : 0.25,
                                         cursor: typeof point.data === "string" ? 'pointer' : 'default',
                                     }}
-                                    onClick={() => setActivePin(point)}
+                                    onClick={() => {
+                                        if (window.innerWidth > 1200) {
+                                            setActivePin(point)
+                                        }
+                                    }}
                                 />
                                 <circle
                                     cx={point.x}
@@ -112,7 +116,14 @@ export default function Map() {
                                         opacity: typeof point.data === "string" ? 1 : 0.25,
                                         cursor: typeof point.data === "string" ? 'pointer' : 'default',
                                     }}
-                                    onClick={() => setActivePin(point)}
+                                    onClick={() => {
+                                        if (window.innerWidth > 1200) {
+                                            setActivePin(point)
+                                        }
+                                    }}
+                                        
+                                        
+                                        
                                 />
                             </React.Fragment>
                         ))}
