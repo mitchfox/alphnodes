@@ -3,7 +3,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import DottedMap from "dotted-map";
 import data from '../app/api/fullnodes.json';
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
+import { useTheme } from "next-themes";
+
 
 interface Node {
     ip: string;
@@ -24,6 +26,7 @@ const svgOptions = {
 };
 
 export default function Map() {
+    const { theme, setTheme } = useTheme();
     const [nodesLoading, setNodesLoading] = useState(true);
     const [activePin, setActivePin] = useState<any>(null);
     const map = useMemo(() => new DottedMap({ height: 60, grid: "vertical" }), []);
@@ -33,7 +36,7 @@ export default function Map() {
         return (data as unknown as Node[]).map((node) => {
             const [lat, lng] = node.location.split(',').map(Number);
             const nodeData = `IP: ${node.ip}, Client: ${node.clientVersion}, Country: ${node.country}`;
-            map.addPin({ lat: lat, lng: lng, data: nodeData, svgOptions: { color: "#4ADE80", radius: 0.3 } });
+            map.addPin({ lat: lat, lng: lng, data: nodeData, svgOptions: { color: "#2aba5f", radius: 0.3 } });
             return {
                 ip: node.ip,
                 clientVersion: node.clientVersion,
@@ -43,7 +46,7 @@ export default function Map() {
                 location: node.location,
                 data: nodeData,
                 svgOptions: {
-                    color: '#4ADE80',
+                    color: '#2aba5f',
                     radius: 0.3,
                 },
             };
@@ -93,7 +96,7 @@ export default function Map() {
                                     cy={point.y}
                                     r={point.svgOptions?.radius ?? 0.3}
                                     className={activePin && activePin.data === point.data ? 'signal-active' : (typeof point.data === "string" ? "signal" : '')}
-                                    fill={activePin && activePin.data === point.data ? "#ff9832" : (point.svgOptions?.color ?? "#8A8FB5")}
+                                    fill={activePin && activePin.data === point.data ? "#f97316" : (point.svgOptions?.color ?? "#8A8FB5")}
                                     style={{
                                         opacity: typeof point.data === "string" ? 1 : 0.25,
                                         cursor: typeof point.data === "string" ? 'pointer' : 'default',
@@ -104,7 +107,7 @@ export default function Map() {
                                     cx={point.x}
                                     cy={point.y}
                                     r={point.svgOptions?.radius ?? 0.3}
-                                    fill={activePin && activePin.data === point.data ? "#ff9832" : (point.svgOptions?.color ?? "#8A8FB5")}
+                                    fill={activePin && activePin.data === point.data ? "#f97316" : (point.svgOptions?.color ?? "#8A8FB5")}
                                     style={{
                                         opacity: typeof point.data === "string" ? 1 : 0.25,
                                         cursor: typeof point.data === "string" ? 'pointer' : 'default',
@@ -128,14 +131,14 @@ export default function Map() {
 
                         .signal {
                             fill: none;
-                            stroke: #4ADE80;
+                            stroke: #2aba5f;
                             stroke-width: 0.1;
                             animation: signalPulse 2s infinite;
                         }
 
                         .signal-active {
                             fill: none;
-                            stroke: #ff9832;
+                            stroke: #f97316;
                             stroke-width: 0.1;
                             animation: signalPulse 2s infinite;
                         }

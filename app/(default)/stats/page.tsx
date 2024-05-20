@@ -8,13 +8,12 @@ export const metadata = {
 };
 
 import PageHeaderAlt from "@/components/page-header-alt";
-import Cta from "@/components/cta";
-import Posts from "@/app/(default)/updates/posts";
+// import Cta from "@/components/cta";
+// import Posts from "@/app/(default)/updates/posts";
 
 export default async function Ecosystem() {
   const postsData: Promise<Post[]> = getAllPosts();
   const posts = await postsData;
-  Cta
   return (
     <>
       <section>

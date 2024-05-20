@@ -1,9 +1,14 @@
 'use client'
+
+
 import React, { useState, useEffect } from 'react';
-
-import Card from './card';
-
+// import Card from './card';
 import data from '../../app/api/fullnodes.json';
+
+
+import dynamic from 'next/dynamic';
+const Card = dynamic(() => import('./card'), { ssr: false });
+
 
 export default function CardLinks() {
   const [countries, setCountries] = useState<{ name: string, count: number }[]>([]);
