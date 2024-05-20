@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center py-8">
-            <p className="text-sm text-gray-700 dark:text-gray-400">
+            <div className="text-sm text-gray-700 dark:text-gray-400">
               {/* open in a new link */}
               <p>© AlphNodes</p>
               <p>Powered by No <a className="text-green-500" href="https://notrustverify.ch" target="_blank" rel="noopener noreferrer">Trust Verify</a> & <a className="text-green-500" href="https://x.com/pushvalue" target="_blank" rel="noopener noreferrer">Push Value</a></p>
@@ -28,7 +28,7 @@ export default function Footer() {
               >
                 @davidepacilio.
               </a> */}
-            </p>
+            </div>
           </div>
         </div>
       </div>

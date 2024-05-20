@@ -14,7 +14,7 @@ export default function DefaultLayout({
   return (
     <>
       {/* <VerticalLines /> */}
-      <div style={{ opacity: '0.3' }}>
+      <div style={{ opacity: '0.1' }}>
       <BgShapes />
       </div>
 
