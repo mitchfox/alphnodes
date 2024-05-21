@@ -30,13 +30,13 @@ export default function Map() {
     const [nodesLoading, setNodesLoading] = useState(true);
     const [activePin, setActivePin] = useState<any>(null);
     const map = useMemo(() => new DottedMap({ height: 60, grid: "vertical" }), []);
-    const viewBox = `0 0 140 70`;
+    const viewBox = `0 0 125 70`;
 
     const nodes = useMemo(() => {
         return (data as unknown as Node[]).map((node) => {
             const [lat, lng] = node.location.split(',').map(Number);
             const nodeData = `IP: ${node.ip}, Client: ${node.clientVersion}, Country: ${node.country}`;
-            map.addPin({ lat: lat, lng: lng, data: nodeData, svgOptions: { color: "#2aba5f", radius: 0.3 } });
+            map.addPin({ lat: lat, lng: lng, data: nodeData, svgOptions: { color: "#2aba5f", radius: 0.25 } });
             return {
                 ip: node.ip,
                 clientVersion: node.clientVersion,
@@ -47,7 +47,7 @@ export default function Map() {
                 data: nodeData,
                 svgOptions: {
                     color: '#2aba5f',
-                    radius: 0.3,
+                    radius: 0.25,
                 },
             };
         });
@@ -81,7 +81,7 @@ export default function Map() {
                                 fontSize: '13px',
                                 display: 'flex' 
                             }}>
-                                <p>Loading data on all the amazing people who support the Alephium Network...</p>
+                                <p style={{ textAlign: 'center' }}>Loading data on all the amazing people who support the Alephium Network...</p>
                                 
                             </div>
                         </Fade>
@@ -94,7 +94,7 @@ export default function Map() {
                                 <circle
                                     cx={point.x}
                                     cy={point.y}
-                                    r={point.svgOptions?.radius ?? 0.3}
+                                    r={point.svgOptions?.radius ?? 0.25}
                                     className={activePin && activePin.data === point.data ? 'signal-active' : (typeof point.data === "string" ? "signal" : '')}
                                     fill={activePin && activePin.data === point.data ? "#f97316" : (point.svgOptions?.color ?? "#8A8FB5")}
                                     style={{
@@ -110,7 +110,7 @@ export default function Map() {
                                 <circle
                                     cx={point.x}
                                     cy={point.y}
-                                    r={point.svgOptions?.radius ?? 0.3}
+                                    r={point.svgOptions?.radius ?? 0.25}
                                     fill={activePin && activePin.data === point.data ? "#f97316" : (point.svgOptions?.color ?? "#8A8FB5")}
                                     style={{
                                         opacity: typeof point.data === "string" ? 1 : 0.25,
@@ -131,7 +131,7 @@ export default function Map() {
                     <style jsx>{`
                         @keyframes signalPulse {
                             0% {
-                                r: 0.3;
+                                r: 0.25;
                                 opacity: 1;
                             }
                             100% {
@@ -144,22 +144,23 @@ export default function Map() {
                             fill: none;
                             stroke: #2aba5f;
                             stroke-width: 0.1;
-                            animation: signalPulse 2s infinite;
+                            opacity: 0.25;
+                            animation: signalPulse 3s infinite;
                         }
 
                         .signal-active {
                             fill: none;
                             stroke: #f97316;
                             stroke-width: 0.1;
-                            animation: signalPulse 2s infinite;
+                            animation: signalPulse 3s infinite;
                         }
                     `}</style>
 
-                    {activePin && (
+                    {activePin ? (
                         <Fade>
                             <div style={{ 
                                 width: 'max-content',
-                                margin: '-50px auto 50px auto', 
+                                margin: '-70px auto 50px auto', 
                                 height: 'auto', 
                                 padding: '4px 10px',
                                 boxShadow: '0 0 10px rgba(0, 0, 0, 0.05)',
@@ -174,7 +175,10 @@ export default function Map() {
                                 <p>Country: {activePin.data.split(", ")[2].split(": ")[1]}</p>
                             </div>
                         </Fade>
-                    )}
+                    )
+                    :
+                    <div style={{ height: '10px' }}></div>
+                    }
                 </>
             )}
         </div>

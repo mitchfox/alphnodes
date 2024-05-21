@@ -195,7 +195,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
   }, [item.data, item.labels]);
 
   return (
-    <div className="max-w-md w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="max-w-md w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ margin: 'auto' }}>
       <div className="flex justify-between mb-3">
         <div className="flex justify-center items-center">
           <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">{item.title}</h5>
