@@ -102,7 +102,7 @@ export default function Map() {
                                         cursor: typeof point.data === "string" ? 'pointer' : 'default',
                                     }}
                                     onClick={() => {
-                                        if (window.innerWidth > 1200) {
+                                        if (window.innerWidth > 1200 && typeof point.data === "string") {
                                             setActivePin(point)
                                         }
                                     }}
@@ -117,7 +117,7 @@ export default function Map() {
                                         cursor: typeof point.data === "string" ? 'pointer' : 'default',
                                     }}
                                     onClick={() => {
-                                        if (window.innerWidth > 1200) {
+                                        if (window.innerWidth > 1200 && typeof point.data === "string") {
                                             setActivePin(point)
                                         }
                                     }}
