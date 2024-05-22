@@ -13,7 +13,7 @@ export default function SubscribeForm() {
           <form className="relative">
             {/* Border with dots in corners */}
             <div
-              className="absolute -inset-3 bg-green-500/15 dark:bg-transparent dark:bg-gradient-to-b dark:from-gray-700/80 dark:to-gray-700/70 rounded-lg -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[15px] before:bg-[length:15px_15px] before:[background-position:top_center,bottom_center] before:bg-no-repeat before:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:before:[background-image:radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px)] after:absolute after:inset-y-0 after:right-0 after:w-[15px] after:bg-[length:15px_15px] after:[background-position:top_center,bottom_center] after:bg-no-repeat after:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:after:[background-image:radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px)]"
+              className="absolute -inset-3 bg-green-500/15 dark:bg-transparent dark:bg-gradient-to-b dark:from-neutral-700/80 dark:to-neutral-700/70 rounded-lg -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[15px] before:bg-[length:15px_15px] before:[background-position:top_center,bottom_center] before:bg-no-repeat before:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:before:[background-image:radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px)] after:absolute after:inset-y-0 after:right-0 after:w-[15px] after:bg-[length:15px_15px] after:[background-position:top_center,bottom_center] after:bg-no-repeat after:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:after:[background-image:radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px)]"
               aria-hidden="true"
             />
             <div className="space-y-3">
@@ -22,7 +22,7 @@ export default function SubscribeForm() {
                   Email
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 text-gray-500/70 dark:text-gray-400/70 pl-4 flex items-center pointer-events-none">
+                  <div className="absolute inset-y-0 left-0 text-neutral-500/70 dark:text-neutral-400/70 pl-4 flex items-center pointer-events-none">
                     <svg
                       className="fill-current"
                       xmlns="http://www.w3.org/2000/svg"
@@ -37,12 +37,12 @@ export default function SubscribeForm() {
                     className="form-input text-sm w-full pl-10 pr-4"
                     type="email"
                     placeholder="Your email..."
-                    required
+                    requigreen
                   />
                 </div>
               </div>
               <div>
-                <button className="btn text-gray-100 bg-gray-900 hover:bg-gray-800 dark:text-gray-800 dark:bg-gray-100 dark:hover:bg-white w-full">
+                <button className="btn text-neutral-100 bg-neutral-900 hover:bg-neutral-800 dark:text-neutral-800 dark:bg-neutral-100 dark:hover:bg-white w-full">
                   Join The Waitlist
                 </button>
               </div>
@@ -100,9 +100,9 @@ export default function SubscribeForm() {
               />
             </li>
           </ul>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-neutral-500">
             Join the{" "}
-            <span className="text-gray-700 dark:text-gray-200 font-medium">
+            <span className="text-neutral-700 dark:text-neutral-200 font-medium">
               2.000+
             </span>{" "}
             members who have already signed up.

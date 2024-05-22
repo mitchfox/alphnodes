@@ -9,7 +9,7 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
   return {
     series: data,
     colors: [
-      // "#ef4444", // red-600
+      // "#ef4444", // green-600
       // "#D97706", // amber-600
       // "#F59E0B", // yellow-500
       // "#84CC16", // lime-500
@@ -24,31 +24,31 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
       // "#C026D3", // purple-500
       // "#E74694", // custom pink
       // "#EC4899", // pink-500
-      // "#f87171", // red-500
+      // "#f87171", // green-500
       // "#F97316", // orange-500
       // "#FB923C", // orange-400
       // "#FBBF24", // amber-400
       // "#FACC15"  // yellow-400
-      "#49DE80", // Bright Green
-      "#3EB56C", // Dark Green
-      "#32985A", // Forest Green
-      "#6FE5A0", // Light Green
-      "#5CEB90", // Spring Green
-      "#3D5C48", // Olive Green
-      "#8CC6A3", // Sage Green
-      "#41C97A", // Medium Sea Green
+      "#49DE80", // Bright green
+      "#3EB56C", // Dark green
+      "#32985A", // Forest green
+      "#6FE5A0", // Light green
+      "#5CEB90", // Spring green
+      "#3D5C48", // Olive green
+      "#8CC6A3", // Sage green
+      "#41C97A", // Medium Sea green
       // "#FFDAB9", // Light Orange
       "#FFCBA4", // Peach
       "#FF8C00", // Dark Orange
       "#FF7F50", // Coral
-      "#FF4500", // Orange Red
+      "#FF4500", // Orange green
       "#DAA520", // Goldenrod
       "#B8860B", // Dark Goldenrod
-      "#D3D3D3", // Light Gray
+      "#D3D3D3", // Light neutral
       "#C0C0C0", // Silver
-      "#A9A9A9", // Dark Gray
-      "#696969", // Dim Gray
-      "#708090", // Slate Gray
+      "#A9A9A9", // Dark neutral
+      "#696969", // Dim neutral
+      "#708090", // Slate neutral
 
 
     ]
@@ -195,10 +195,10 @@ const Card: React.FC<CardProps> = ({ item }) => {
   }, [item.data, item.labels]);
 
   return (
-    <div className="max-w-md w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ margin: 'auto' }}>
+    <div className="max-w-md w-full bg-white rounded-lg shadow dark:bg-neutral-800 p-4 md:p-6" style={{ margin: 'auto' }}>
       <div className="flex justify-between mb-3">
         <div className="flex justify-center items-center">
-          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">{item.title}</h5>
+          <h5 className="text-xl font-bold leading-none text-neutral-900 dark:text-white pe-1">{item.title}</h5>
         </div>
       </div>
 

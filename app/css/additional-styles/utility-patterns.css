@@ -32,7 +32,7 @@
 /* Buttons */
 .btn,
 .btn-sm {
-  @apply text-sm font-medium inline-flex items-center justify-center border border-transparent rounded-lg shadow-lg shadow-black/25 tracking-normal transition relative isolate before:absolute before:-inset-px before:rounded-lg before:pointer-events-none before:-z-10 before:shadow-[0px_2px_0px_0px_theme(colors.white/.25)_inset] dark:before:shadow-[0px_2px_0px_0px_theme(colors.gray.950/.16)_inset];
+  @apply text-sm font-medium inline-flex items-center justify-center border border-transparent rounded-lg shadow-lg shadow-black/25 tracking-normal transition relative isolate before:absolute before:-inset-px before:rounded-lg before:pointer-events-none before:-z-10 before:shadow-[0px_2px_0px_0px_theme(colors.white/.25)_inset] dark:before:shadow-[0px_2px_0px_0px_theme(colors.neutral.950/.16)_inset];
 }
 
 .btn {
@@ -57,7 +57,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .form-select,
 .form-checkbox,
 .form-radio {
-  @apply bg-white/70 dark:bg-gray-900/50 border focus:ring-0 focus:ring-offset-0 border-transparent hover:bg-white/80 dark:hover:bg-gray-900/60 focus:bg-white dark:focus:bg-gray-900/80 focus:border-transparent shadow shadow-black/5;
+  @apply bg-white/70 dark:bg-neutral-900/50 border focus:ring-0 focus:ring-offset-0 border-transparent hover:bg-white/80 dark:hover:bg-neutral-900/60 focus:bg-white dark:focus:bg-neutral-900/80 focus:border-transparent shadow shadow-black/5;
 }
 
 .form-input,
@@ -72,12 +72,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .form-textarea,
 .form-multiselect,
 .form-select {
-  @apply text-gray-600 dark:text-gray-300 text-sm px-4 py-2;
+  @apply text-neutral-600 dark:text-neutral-300 text-sm px-4 py-2;
 }
 
 .form-input,
 .form-textarea {
-  @apply placeholder-gray-400 dark:placeholder-gray-500;
+  @apply placeholder-neutral-400 dark:placeholder-neutral-500;
 }
 
 .form-select {

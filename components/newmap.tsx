@@ -8,14 +8,8 @@ import Globe from "react-globe.gl";
 import data from '../app/api/fullnodes.json';
 import 'leaflet/dist/leaflet.css';
 import { useTheme } from "next-themes";
-import Image from '../public/images/about.png'
-import { icon } from "leaflet"
 import './clusters.css';
 
-// const ICON = icon({
-//   iconUrl: "/marker.png",
-//   iconSize: [32, 32],
-// })
 const ICON = new L.Icon({
   iconUrl: '/marker1.png', // Path to your custom marker image in the public folder
   iconSize: [18, 18], // Adjust the size as needed
@@ -32,11 +26,6 @@ interface Node {
   country: string;
   data: string;
 }
-
-// mapbox://styles/mfprojects/clwgxy13n00j901pn9n2vdu4e
-
-// LIGHT THEME
-// mapbox://styles/mfprojects/clwgz9v1p00dc01qs8f0f6bnz
 
 export default function Map() {
   const { theme, setTheme } = useTheme();
@@ -63,18 +52,15 @@ export default function Map() {
     setNodesLoading(false);
   }, []);
 
-  const GlobeContainWidth = 'calc(100vw - 20px)'
-
-
   const createClusterCustomIcon = (cluster) => {
     const count = cluster.getChildCount();
 
     let size = 'large';
-    let color = '#b91c1c'; // Default color: red
+    let color = '#b91c1c'; // Default color: green
 
     if (count < 10) {
       size = 'small';
-      color = '#16a34a'; // Green for small clusters
+      color = '#16a34a'; // green for small clusters
     } else if (count < 100) {
       size = 'medium';
       color = '#f59e0b'; // Orange for medium clusters
@@ -87,44 +73,43 @@ export default function Map() {
     });
   };
 
-
   useEffect(() => {
     if (view === 'globe' && globeEl.current) {
       const controls = globeEl.current.controls();
       controls.autoRotate = true;
-      controls.autoRotateSpeed = 0.5; // Adjust the speed as needed
+      controls.autoRotateSpeed = 0.2; // Adjust the speed as needed
       globeEl.current.camera().position.z = 400; // Adjust camera position if needed
     }
   }, [view]); // Depend on the view state
 
   return (
-    <div className="App" style={{ height: "100vh", width: "100%", }}>
+    <div className="App" style={{ height: "100vh", width: "100%" }}>
       <div
-  style={{
-    position: 'absolute', bottom: '150px', right: '0px', left: '0px', zIndex: 1000,
-    fontSize: '12px', fontWeight: '500', display: 'flex', justifyContent: 'center', alignItems: 'center',
-  }}>
-  <button
-    onClick={() => setView(view === 'map' ? 'globe' : 'map')}
-    style={{
-      padding: '6px 16px',
-      borderRadius: '100px',
-      backdropFilter: 'blur(10px)',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      border: theme === 'dark' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)',
-      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-      color: theme === 'dark' ? '#fff' : '#000',
-      textTransform: 'uppercase',
-      fontWeight: 'bold',
-      transition: 'background-color 0.3s ease',
-      cursor: 'pointer',
-    }}
-    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'}
-    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
-  >
-    Toggle View
-  </button>
-</div>
+        style={{
+          position: 'absolute', bottom: '150px', right: '0px', left: '0px', zIndex: 1000,
+          fontSize: '12px', fontWeight: '500', display: 'flex', justifyContent: 'center', alignItems: 'center',
+        }}>
+        <button
+          onClick={() => setView(view === 'map' ? 'globe' : 'map')}
+          style={{
+            padding: '6px 16px',
+            borderRadius: '100px',
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            border: theme === 'dark' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+            color: theme === 'dark' ? '#fff' : '#000',
+            textTransform: 'uppercase',
+            fontWeight: 'bold',
+            transition: 'background-color 0.3s ease',
+            cursor: 'pointer',
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
+        >
+          Toggle View
+        </button>
+      </div>
       {nodesLoading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', margin: 'auto' }}>
           <p>Loading data on all the amazing people who support the Alephium Network...</p>
@@ -137,17 +122,11 @@ export default function Map() {
           maxBounds={[[90, -180], [-90, 180]]} // Restrict bounds to the whole world
           maxBoundsViscosity={1.0} // Ensure bounds are strictly enforced
           zoomControl={false}
-          zoom={2} 
+          zoom={2}
           style={{ height: "100vh", width: "100%" }}
-          >
+        >
           <TileLayer
-            url={theme === 'dark' ?
-              `https://api.mapbox.com/styles/v1/mfprojects/clwgxy13n00j901pn9n2vdu4e/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWZwcm9qZWN0cyIsImEiOiJjbHdndnQ4MHQwOHlyMmlyeXJ2ZTQ1Y2ZtIn0.9jhFhJ9KuA2_qsNhaYIaRg`
-              :
-              `https://api.mapbox.com/styles/v1/mfprojects/clwgz9v1p00dc01qs8f0f6bnz/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWZwcm9qZWN0cyIsImEiOiJjbHdndnQ4MHQwOHlyMmlyeXJ2ZTQ1Y2ZtIn0.9jhFhJ9KuA2_qsNhaYIaRg`
-
-            }
-            // attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> contributors'
+            url={theme === 'dark' ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : "https://tile.openstreetmap.org/{z}/{x}/{y}.png"}
           />
           <MarkerClusterGroup
             iconCreateFunction={createClusterCustomIcon}
@@ -172,7 +151,7 @@ export default function Map() {
       ) : (
         <Globe
           ref={globeEl}
-          globeImageUrl={theme === 'dark' ? "//unpkg.com/three-globe/example/img/earth-night.jpg" : "//unpkg.com/three-globe/example/img/earth-day.jpg"}
+          globeImageUrl={theme === 'dark' ? "//unpkg.com/three-globe/example/img/earth-dark.jpg" : "//unpkg.com/three-globe/example/img/earth-day.jpg"}
           bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
           backgroundColor="rgba(0,0,0,0)"
           pointsData={nodes}
@@ -187,23 +166,9 @@ export default function Map() {
           pointLng={(d: object) => (d as Node).lng}
           width={window.innerWidth}
           height={window.innerHeight - 100}
+          atmosphereColor="#d9ffe2"  // Change this to your desired glow color
+          atmosphereAltitude={0.1}
         />
-        // HEX BIN STYLE
-        //   <Globe
-        //   ref={globeEl}
-        //   globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        //   bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-        //   backgroundColor="rgba(0,0,0,0)"
-        //   hexBinPointsData={nodes}
-        //   hexBinPointLat={(d: Node) => d.lat}
-        //   hexBinPointLng={(d: Node) => d.lng}
-        //   hexBinResolution={4} // Adjust the hex bin resolution as needed
-        //   hexBinMerge={true}
-        //   hexBinColor={() => '#49DE80'}
-        //   hexBinAltitude={(d: any) => d.sumWeight * 0.01} // Adjust the altitude based on the density
-        //   width={window.innerWidth}
-        //   height={window.innerHeight}
-        // />
       )}
     </div>
   );

@@ -40,7 +40,7 @@ export default function Stats() {
               <Counter number={stat.number} />
               {stat.suffix}
             </h4>
-            <p className="text-xs text-zinc-500">{stat.text}</p>
+            <p className="text-xs text-neutral-500">{stat.text}</p>
           </div>
         ))}
       </div>

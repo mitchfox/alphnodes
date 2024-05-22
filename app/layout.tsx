@@ -35,7 +35,7 @@ export default function RootLayout({
      
 
       <body
-        className={`${inter.variable} ${inter_tight.variable} font-inter antialiased bg-slate-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 tracking-tight`}
+        className={`${inter.variable} ${inter_tight.variable} font-inter antialiased bg-slate-100 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 tracking-tight`}
       >
         {/* <AlephiumWalletProvider useTheme="win95"> */}
           <Theme>

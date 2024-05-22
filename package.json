@@ -25,6 +25,7 @@
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "mapbox-gl": "^3.3.0",
+    "maplibre-gl": "^4.3.2",
     "next": "^14.0.3",
     "next-themes": "^0.2.1",
     "react": "18.2.0",

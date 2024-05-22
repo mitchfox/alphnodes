@@ -77,7 +77,7 @@ export default function PostsSidebar({
 
   return (
     <aside className="mb-12 md:mb-0 md:w-[276px] md:mr-8 md:shrink-0 md:p-4">
-      <div className="font-semibold text-xs text-gray-500/80 uppercase tracking-normal mb-3">
+      <div className="font-semibold text-xs text-neutral-500/80 uppercase tracking-normal mb-3">
         Select category
       </div>
       <ul className="space-y-0.5">
@@ -85,7 +85,7 @@ export default function PostsSidebar({
           return (
             <li key={index}>
               <a
-                className={`flex items-center font-medium text-sm text-gray-800 dark:text-gray-200 px-4 h-9 space-x-4 transition-colors rounded-lg ${selectedCategory === category ? "bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-gray-700/50 dark:to-gray-700/40 shadow shadow-black/5" : "hover:bg-teal-50/50 dark:hover:bg-gray-700/20"}`}
+                className={`flex items-center font-medium text-sm text-neutral-800 dark:text-neutral-200 px-4 h-9 space-x-4 transition-colors rounded-lg ${selectedCategory === category ? "bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-neutral-700/50 dark:to-neutral-700/40 shadow shadow-black/5" : "hover:bg-teal-50/50 dark:hover:bg-neutral-700/20"}`}
                 href="#0"
                 onClick={(e) => {
                   e.preventDefault();
