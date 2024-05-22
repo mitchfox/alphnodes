@@ -30,7 +30,7 @@ export default function Home() {
            
           </div>
 
-          <div style={{ position: 'absolute', bottom: '10px', left: '0px', right: '0px' }}>
+          <div style={{ position: 'absolute', bottom: '20px', left: '0px', right: '0px' }}>
             <Stats />
             <div className="">
         <div className="max-w-3xl mx-auto">

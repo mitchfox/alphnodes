@@ -100,15 +100,31 @@ export default function Map() {
   return (
     <div className="App" style={{ height: "100vh", width: "100%", }}>
       <div
-        style={{
-          position: 'absolute', bottom: '140px', right: '0px', left: '0px', zIndex: 1000,
-          fontSize: '14px', fontWeight: '500', display: 'flex', justifyContent: 'center', alignItems: 'center',
-        }}>
-        <button
-          onClick={() => setView(view === 'map' ? 'globe' : 'map')}
-          style={{ padding: '10px', borderRadius: '10px', }}>Toggle View</button>
-
-      </div>
+  style={{
+    position: 'absolute', bottom: '150px', right: '0px', left: '0px', zIndex: 1000,
+    fontSize: '12px', fontWeight: '500', display: 'flex', justifyContent: 'center', alignItems: 'center',
+  }}>
+  <button
+    onClick={() => setView(view === 'map' ? 'globe' : 'map')}
+    style={{
+      padding: '6px 16px',
+      borderRadius: '100px',
+      backdropFilter: 'blur(10px)',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      border: theme === 'dark' ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)',
+      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+      color: theme === 'dark' ? '#fff' : '#000',
+      textTransform: 'uppercase',
+      fontWeight: 'bold',
+      transition: 'background-color 0.3s ease',
+      cursor: 'pointer',
+    }}
+    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'}
+    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
+  >
+    Toggle View
+  </button>
+</div>
       {nodesLoading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', margin: 'auto' }}>
           <p>Loading data on all the amazing people who support the Alephium Network...</p>
@@ -168,7 +184,7 @@ export default function Map() {
           pointLat={(d: object) => (d as Node).lat}
           pointLng={(d: object) => (d as Node).lng}
           width={window.innerWidth}
-          height={window.innerHeight}
+          height={window.innerHeight - 100}
         />
         // HEX BIN STYLE
         //   <Globe

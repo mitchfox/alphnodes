@@ -62,7 +62,7 @@ export default function Header() {
                     className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
                     onClick={handleLinkClick}
                   >
-                    <span style={{ fontSize: '18px' }}>ℵ </span>ALPH<span className="text-green-400 italic"> NODES</span>
+                    <span style={{ fontSize: '18px' }}></span>ALPH<span className="text-green-400 italic">NODES</span>
                   </Link>
                 </div>
                 {/* Navigation links */}

@@ -37,7 +37,7 @@ export default function Stats() {
 
         {stats.map((stat, index) => (
           <div key={index} className="relative text-center md:px-5">
-            <h4 className="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2">
+            <h4 className="font-inter-tight text-xl md:text-2xl font-bold tabular-nums mb-1">
               <Counter number={stat.number} />
               {stat.suffix}
             </h4>
