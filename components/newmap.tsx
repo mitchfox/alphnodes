@@ -137,7 +137,9 @@ export default function Map() {
           maxBounds={[[90, -180], [-90, 180]]} // Restrict bounds to the whole world
           maxBoundsViscosity={1.0} // Ensure bounds are strictly enforced
           zoomControl={false}
-          zoom={2} style={{ height: "100vh", width: "100%" }}>
+          zoom={2} 
+          style={{ height: "100vh", width: "100%" }}
+          >
           <TileLayer
             url={theme === 'dark' ?
               `https://api.mapbox.com/styles/v1/mfprojects/clwgxy13n00j901pn9n2vdu4e/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWZwcm9qZWN0cyIsImEiOiJjbHdndnQ4MHQwOHlyMmlyeXJ2ZTQ1Y2ZtIn0.9jhFhJ9KuA2_qsNhaYIaRg`
