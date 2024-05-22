@@ -24,7 +24,7 @@ export default function Contact() {
               <form className="relative">
                 {/* Border with dots in corners */}
                 <div
-                  className="absolute -inset-3 bg-green-500/15 dark:bg-transparent dark:bg-gradient-to-b dark:from-neutral-700/80 dark:to-neutral-700/70 rounded-lg -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[15px] before:bg-[length:15px_15px] before:[background-position:top_center,bottom_center] before:bg-no-repeat before:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:before:[background-image:radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px)] after:absolute after:inset-y-0 after:right-0 after:w-[15px] after:bg-[length:15px_15px] after:[background-position:top_center,bottom_center] after:bg-no-repeat after:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:after:[background-image:radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.neutral.600)_1.5px,transparent_1.5px)]"
+                  className="absolute -inset-3 bg-green-500/15 dark:bg-transparent dark:bg-gradient-to-b dark:from-gray-700/80 dark:to-gray-700/70 rounded-lg -z-10 before:absolute before:inset-y-0 before:left-0 before:w-[15px] before:bg-[length:15px_15px] before:[background-position:top_center,bottom_center] before:bg-no-repeat before:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:before:[background-image:radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px)] after:absolute after:inset-y-0 after:right-0 after:w-[15px] after:bg-[length:15px_15px] after:[background-position:top_center,bottom_center] after:bg-no-repeat after:[background-image:radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.green.500/.56)_1.5px,transparent_1.5px)] dark:after:[background-image:radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px),radial-gradient(circle_at_center,theme(colors.gray.600)_1.5px,transparent_1.5px)]"
                   aria-hidden="true"
                 />
                 <div className="space-y-5">
@@ -34,7 +34,7 @@ export default function Contact() {
                         Name
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 text-neutral-500/70 dark:text-neutral-400/70 pl-4 flex items-center pointer-events-none">
+                        <div className="absolute inset-y-0 left-0 text-gray-500/70 dark:text-gray-400/70 pl-4 flex items-center pointer-events-none">
                           <svg
                             className="fill-current"
                             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ export default function Contact() {
                           className="form-input text-sm w-full pl-10 pr-4"
                           type="text"
                           placeholder="Your name..."
-                          requigreen
+                          required
                         />
                       </div>
                     </div>
@@ -58,7 +58,7 @@ export default function Contact() {
                         Email
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 text-neutral-500/70 dark:text-neutral-400/70 pl-4 flex items-center pointer-events-none">
+                        <div className="absolute inset-y-0 left-0 text-gray-500/70 dark:text-gray-400/70 pl-4 flex items-center pointer-events-none">
                           <svg
                             className="fill-current"
                             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ export default function Contact() {
                           className="form-input text-sm w-full pl-10 pr-4"
                           type="email"
                           placeholder="Your email..."
-                          requigreen
+                          required
                         />
                       </div>
                     </div>
@@ -82,7 +82,7 @@ export default function Contact() {
                         Company size
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 text-neutral-500/70 dark:text-neutral-400/70 pl-4 flex items-center pointer-events-none">
+                        <div className="absolute inset-y-0 left-0 text-gray-500/70 dark:text-gray-400/70 pl-4 flex items-center pointer-events-none">
                           <svg
                             className="fill-current"
                             xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export default function Contact() {
                           id="company"
                           className="form-select text-sm w-full pl-10"
                           defaultValue={0}
-                          requigreen
+                          required
                         >
                           <option value="0" disabled hidden>
                             Company size
@@ -116,21 +116,21 @@ export default function Contact() {
                         className="form-textarea text-sm w-full resize-none"
                         placeholder="Your message.."
                         rows={3}
-                        requigreen
+                        required
                         defaultValue={""}
                       />
                     </div>
                     <div>
                       <label className="flex items-center">
                         <input type="checkbox" className="form-checkbox" />
-                        <span className="text-sm text-neutral-500 ml-2">
+                        <span className="text-sm text-gray-500 ml-2">
                           I'd like to receive updates &amp; product news.
                         </span>
                       </label>
                     </div>
                   </div>
                   <div>
-                    <button className="btn text-neutral-100 bg-neutral-900 hover:bg-neutral-800 dark:text-neutral-800 dark:bg-neutral-100 dark:hover:bg-white w-full">
+                    <button className="btn text-gray-100 bg-gray-900 hover:bg-gray-800 dark:text-gray-800 dark:bg-gray-100 dark:hover:bg-white w-full">
                       Submit
                     </button>
                   </div>
@@ -142,12 +142,12 @@ export default function Contact() {
           <div className="max-w-xs md:max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-6 xl:gap-9 xl:mx-8 max-md:-mx-3">
               {/* Card */}
-              <div className="flex flex-col rounded-lg bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-neutral-700/50 dark:to-neutral-700/40 p-5">
+              <div className="flex flex-col rounded-lg bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-gray-700/50 dark:to-gray-700/40 p-5">
                 <div className="grow mb-3">
-                  <div className="font-inter-tight font-semibold text-neutral-800 dark:text-neutral-200 mb-1">
+                  <div className="font-inter-tight font-semibold text-gray-800 dark:text-gray-200 mb-1">
                     Email
                   </div>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-500">
+                  <p className="text-sm text-gray-600 dark:text-gray-500">
                     Email us your queries and we'll get back to you ASAP.
                   </p>
                 </div>
@@ -160,18 +160,18 @@ export default function Contact() {
                   >
                     <path d="M8 0a8 8 0 1 0 3.2 15.335l.916-.4-.8-1.833-.916.4A6 6 0 1 1 14 8v1a1 1 0 1 1-2 0V8a4.033 4.033 0 1 0-1.286 2.92A2.987 2.987 0 0 0 16 9V8a8.009 8.009 0 0 0-8-8Zm0 10a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
                   </svg>
-                  <div className="text-sm text-neutral-800 dark:text-neutral-200">
+                  <div className="text-sm text-gray-800 dark:text-gray-200">
                     hello@cruip.com
                   </div>
                 </div>
               </div>
               {/* Card */}
-              <div className="flex flex-col rounded-lg bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-neutral-700/50 dark:to-neutral-700/40 p-5">
+              <div className="flex flex-col rounded-lg bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-gray-700/50 dark:to-gray-700/40 p-5">
                 <div className="grow mb-3">
-                  <div className="font-inter-tight font-semibold text-neutral-800 dark:text-neutral-200 mb-1">
+                  <div className="font-inter-tight font-semibold text-gray-800 dark:text-gray-200 mb-1">
                     Phone
                   </div>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-500">
+                  <p className="text-sm text-gray-600 dark:text-gray-500">
                     Would you like to have a chat? Feel free to give us a call.
                   </p>
                 </div>
@@ -184,18 +184,18 @@ export default function Contact() {
                   >
                     <path d="M10 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM2 13V3h8v10H2Z" />
                   </svg>
-                  <div className="text-sm text-neutral-800 dark:text-neutral-200">
+                  <div className="text-sm text-gray-800 dark:text-gray-200">
                     +447359510000
                   </div>
                 </div>
               </div>
               {/* Card */}
-              <div className="flex flex-col rounded-lg bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-neutral-700/50 dark:to-neutral-700/40 p-5">
+              <div className="flex flex-col rounded-lg bg-gradient-to-tr from-white/70 to-white/50 dark:bg-gradient-to-b dark:from-gray-700/50 dark:to-gray-700/40 p-5">
                 <div className="grow mb-3">
-                  <div className="font-inter-tight font-semibold text-neutral-800 dark:text-neutral-200 mb-1">
+                  <div className="font-inter-tight font-semibold text-gray-800 dark:text-gray-200 mb-1">
                     Address
                   </div>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-500">
+                  <p className="text-sm text-gray-600 dark:text-gray-500">
                     Prefer to visit? We're located in London, United Kingdom.
                   </p>
                 </div>
@@ -208,7 +208,7 @@ export default function Contact() {
                   >
                     <path d="M5.591 15.069c.404.358.684.606.709.631.4.4 1 .4 1.4.1.05-.05 1.075-.975 2.1-1.9 1.025-.925 2.05-1.85 2.1-1.9 1.4-1.3 2.1-3.1 2.1-5 0-3.9-3.1-7-7-7S0 3.1 0 7c0 1.9.7 3.7 2.1 4.9 0 .075 2.293 2.107 3.491 3.169ZM7 13.7l-3.4-3C2.6 9.7 2 8.4 2 7c0-2.8 2.2-4.9 5-4.9s5 2.2 5 5c0 1.4-.6 2.6-1.6 3.6l-3.4 3ZM9 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
                   </svg>
-                  <div className="text-sm text-neutral-800 dark:text-neutral-200">
+                  <div className="text-sm text-gray-800 dark:text-gray-200">
                     London, SW1Y 4AH, UK
                   </div>
                 </div>

@@ -8,10 +8,10 @@ export default function Footer() {
       <div className="px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center py-8">
-            <div className="text-sm text-neutral-700 dark:text-neutral-400">
+            <div className="text-sm text-gray-700 dark:text-gray-400">
               {/* open in a new link */}
               <p>© AlphNodes</p>
-              <p>Powegreen by <a className="text-green-500" href="https://notrustverify.ch" target="_blank" rel="noopener noreferrer">No Trust Verify</a> & <a className="text-green-500" href="https://x.com/pushvalue" target="_blank" rel="noopener noreferrer">Push Value</a></p>
+              <p>Powered by <a className="text-green-500" href="https://notrustverify.ch" target="_blank" rel="noopener noreferrer">No Trust Verify</a> & <a className="text-green-500" href="https://x.com/pushvalue" target="_blank" rel="noopener noreferrer">Push Value</a></p>
             </div>
           </div>
         </div>

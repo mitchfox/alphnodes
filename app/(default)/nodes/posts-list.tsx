@@ -7,13 +7,13 @@ export default function PostsList({
   posts: Post[];
   selectedCategory: string;
 }) {
-  const filtegreenPosts = posts.filter(
+  const filteredPosts = posts.filter(
     (post) => post.category === selectedCategory,
   );
 
   return (
     <div className="md:grow -my-5 space-y-4">
-      {filtegreenPosts.map((post) => {
+      {filteredPosts.map((post) => {
         return (
           <article
             key={post.id}
