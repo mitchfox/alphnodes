@@ -101,7 +101,22 @@ export default function Header() {
                                 href="/"
                                 onClick={handleLinkClick}
                               >
-                                Home
+                                Map
+                              </Link>
+                            </li>
+                            <li className="items-center py-4">
+                              <Link
+                                style={{
+                                  width: '100%',
+                                  backdropFilter: 'blur(8px)',
+                                  WebkitBackdropFilter: 'blur(8px)',
+                                  zIndex: '9999',
+                                }}
+                                className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                                href="/nodes"
+                                onClick={handleLinkClick}
+                              >
+                                Map
                               </Link>
                             </li>
                             <li className="items-center py-4">
@@ -155,6 +170,15 @@ export default function Header() {
                 ) : (
                   <nav className="flex justify-center">
                     <ul className="flex items-center sm:gap-x-3 text-sm font-medium">
+                    <li>
+                        <Link
+                          className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"
+                          href="/"
+                          onClick={handleLinkClick}
+                        >
+                          Map
+                        </Link>
+                      </li>
                       <li>
                         <Link
                           className="text-gray-800 dark:text-gray-200 rounded-lg hover:bg-green-100 dark:hover:bg-gray-800/30 py-1.5 px-3"

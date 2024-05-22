@@ -1,0 +1,35 @@
+.custom-cluster-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Ensures the icon is a circle */
+    font-size: 12px;
+    color: white;
+    text-align: center;
+  }
+  
+  .custom-cluster-icon .small {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .custom-cluster-icon .medium {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .custom-cluster-icon .large {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .custom-cluster-icon .cluster-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Ensures the icon is a circle */
+    font-size: 12px;
+    color: white;
+    text-align: center;
+  }
+  

@@ -15,14 +15,14 @@ export default function DefaultLayout({
     <>
       {/* <VerticalLines /> */}
       <div style={{ opacity: '0.1' }}>
-      <BgShapes />
+      {/* <BgShapes /> */}
       </div>
 
       <Header />
 
       <main className="grow">{children}</main>
-
-      <Footer />
+      
+      {/* <Footer /> */}
     </>
   );
 }
