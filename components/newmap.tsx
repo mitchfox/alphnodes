@@ -12,8 +12,15 @@ import './clusters.css';
 
 const ICON = new L.Icon({
   iconUrl: '/marker1.png', // Path to your custom marker image in the public folder
-  iconSize: [18, 18], // Adjust the size as needed
-  iconAnchor: [9, 18], // Anchor the icon
+  iconSize: [16, 16], // Adjust the size as needed
+  iconAnchor: [9, 16], // Anchor the icon
+  popupAnchor: [0, -32] // Position of the popup relative to the icon
+});
+
+const ICON2 = new L.Icon({
+  iconUrl: '/marker2.png', // Path to your custom marker image in the public folder
+  iconSize: [16, 16], // Adjust the size as needed
+  iconAnchor: [9, 16], // Anchor the icon
   popupAnchor: [0, -32] // Position of the popup relative to the icon
 });
 
@@ -135,7 +142,7 @@ export default function Map() {
               <Marker
                 key={index}
                 position={[node.lat, node.lng]}
-                icon={ICON}
+                icon={theme === 'dark' ? ICON : ICON2}
               >
                 <Popup>
                   <div>
