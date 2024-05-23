@@ -3,59 +3,25 @@
 import React, { useEffect, useRef } from "react";
 import ApexCharts from 'apexcharts';
 // import '../../components/styles.css';
+import ReactCountryFlag from "react-country-flag"
+import '../clusters.css';
+
+const generateHtmlLabels = (labels) => {
+  return labels.map(label => {
+    return `<span class="flag-icon"><span class="country-code">${label}</span> <span class="country-flag"><img src="https://flagcdn.com/${label.toLowerCase()}.svg" alt="${label}" style="width: 20px; height: 15px;"/></span></span>`;
+  });
+};
+
 
 const getChartOptions = (data: number[], labels: string[], id: string) => {
-  console.log(labels);
+  const htmlLabels = generateHtmlLabels(labels);
   return {
     series: data,
     colors: [
-      // "#ef4444", // red-600
-      // "#D97706", // amber-600
-      // "#F59E0B", // yellow-500
-      // "#84CC16", // lime-500
-      // "#4ADE80", // green-300
-      // "#22C55E", // green-400
-      // "#10B981", // green-500
-      // "#1D4ED8", // blue-700
-      // "#2563EB", // blue-600
-      // "#3B82F6", // blue-500
-      // "#7C3AED", // purple-700
-      // "#9333EA", // purple-600
-      // "#C026D3", // purple-500
-      // "#E74694", // custom pink
-      // "#EC4899", // pink-500
-      // "#f87171", // red-500
-      // "#F97316", // orange-500
-      // "#FB923C", // orange-400
-      // "#FBBF24", // amber-400
-      // "#FACC15"  // yellow-400
-      "#49DE80", // Bright Green
-      "#3EB56C", // Dark Green
-      "#32985A", // Forest Green
-      "#6FE5A0", // Light Green
-      "#5CEB90", // Spring Green
-      "#3D5C48", // Olive Green
-      "#8CC6A3", // Sage Green
-      "#41C97A", // Medium Sea Green
-      // "#FFDAB9", // Light Orange
-      "#FFCBA4", // Peach
-      "#FF8C00", // Dark Orange
-      "#FF7F50", // Coral
-      "#FF4500", // Orange Red
-      "#DAA520", // Goldenrod
-      "#B8860B", // Dark Goldenrod
-      "#D3D3D3", // Light Gray
-      "#C0C0C0", // Silver
-      "#A9A9A9", // Dark Gray
-      "#696969", // Dim Gray
-      "#708090", // Slate Gray
-
-
-    ]
-    
-    ,
-
-
+      "#ef4444", "#D97706", "#F59E0B", "#84CC16", "#4ADE80", "#22C55E", "#10B981",
+      "#1D4ED8", "#2563EB", "#3B82F6", "#7C3AED", "#9333EA", "#C026D3", "#E74694",
+      "#EC4899", "#f87171", "#F97316", "#FB923C", "#FBBF24", "#FACC15"
+    ],
     chart: {
       height: 320,
       width: "100%",
@@ -76,7 +42,6 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
               fontFamily: "Inter, sans-serif",
               offsetY: 20,
             },
-            
             total: {
               showAlways: true,
               show: true,
@@ -84,19 +49,12 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
               color: "#96A5BA",
               fontFamily: "Inter, sans-serif",
               formatter: function (w: any) {
-
-
                 if (id === '1') {
-                  const sum = w.globals.seriesTotals.reduce((a: number, b: number) => {
-                    return a + b;
-                  }, 0);
+                  const sum = w.globals.seriesTotals.reduce((a: number, b: number) => a + b, 0);
                   return sum;
-                
                 } else {
-                  return labels.length
+                  return labels.length;
                 }
-                
-                
               },
             },
             value: {
@@ -119,10 +77,15 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
       },
     },
     color: "#96A5BA",
-    labels: labels, // Use country names as labels
+    labels: htmlLabels, // Use HTML labels with flags
     dataLabels: {
-      
       enabled: false,
+      formatter: function (val: number, opts: any) {
+        return opts.w.globals.labels[opts.seriesIndex];
+      },
+      style: {
+        colors: ['#fff']
+      },
     },
     legend: {
       position: "bottom",
@@ -163,6 +126,9 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
   };
 };
 
+
+
+
 interface CardProps {
   item: {
     id: string;
@@ -201,9 +167,6 @@ const Card: React.FC<CardProps> = ({ item }) => {
           <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">{item.title}</h5>
         </div>
       </div>
-
-      
-
       <div className="py-6" id="donut-chart" style={{  }} ref={chartRef}></div>
     </div>
   );

@@ -5,20 +5,19 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import Globe from "react-globe.gl";
-import data from '../app/api/fullnodes.json';
 import 'leaflet/dist/leaflet.css';
 import { useTheme } from "next-themes";
 import './clusters.css';
 
 const ICON = new L.Icon({
-  iconUrl: '/marker1.png', // Path to your custom marker image in the public folder
+  iconUrl: '/marker.png', // Path to your custom marker image in the public folder
   iconSize: [16, 16], // Adjust the size as needed
   iconAnchor: [9, 16], // Anchor the icon
   popupAnchor: [0, -32] // Position of the popup relative to the icon
 });
 
 const ICON2 = new L.Icon({
-  iconUrl: '/marker2.png', // Path to your custom marker image in the public folder
+  iconUrl: '/marker.png', // Path to your custom marker image in the public folder
   iconSize: [16, 16], // Adjust the size as needed
   iconAnchor: [9, 16], // Anchor the icon
   popupAnchor: [0, -32] // Position of the popup relative to the icon
@@ -42,35 +41,44 @@ export default function Map() {
   const globeEl = useRef<any>(null);
 
   useEffect(() => {
-    const nodesData = (data as unknown as Node[]).map((node) => {
-      const [lat, lng] = node.location.split(',').map(Number);
-      const nodeData = `IP: ${node.ip}, Client: ${node.clientVersion}, Country: ${node.country}`;
-      return {
-        ip: node.ip,
-        clientVersion: node.clientVersion,
-        lat: lat,
-        lng: lng,
-        country: node.country,
-        location: node.location,
-        data: nodeData,
-      };
-    });
-    setNodes(nodesData);
-    setNodesLoading(false);
+    // Fetch data from your API
+    fetch('https://map.alephium.notrustverify.ch/fullnodes')
+      .then(response => response.json())
+      .then(data => {
+        const nodesData = (data as unknown as Node[]).map((node) => {
+          const [lat, lng] = node.location.split(',').map(Number);
+          const nodeData = `IP: ${node.ip}, Client: ${node.clientVersion}, Country: ${node.country}`;
+          return {
+            ip: node.ip,
+            clientVersion: node.clientVersion,
+            lat: lat,
+            lng: lng,
+            country: node.country,
+            location: node.location,
+            data: nodeData,
+          };
+        });
+        setNodes(nodesData);
+        setNodesLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setNodesLoading(false);
+      });
   }, []);
 
   const createClusterCustomIcon = (cluster) => {
     const count = cluster.getChildCount();
 
     let size = 'large';
-    let color = '#b91c1c'; // Default color: green
+    let color = '#b91c1c'; // Default color: red
 
     if (count < 10) {
       size = 'small';
-      color = '#16a34a'; // green for small clusters
+      color = '#15803d'; // Red for small clusters
     } else if (count < 100) {
       size = 'medium';
-      color = '#f59e0b'; // Orange for medium clusters
+      color = '#fb923c'; // Orange for medium clusters
     }
 
     return L.divIcon({
@@ -162,8 +170,8 @@ export default function Map() {
           bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
           backgroundColor="rgba(0,0,0,0)"
           pointsData={nodes}
-          pointAltitude={0.05}
-          pointColor={() => '#49DE80'}
+          pointAltitude={0.075}
+          pointColor={() => '#FF5D51'}
           pointLabel={(obj: object) => `
             <b>IP:</b> ${(obj as Node).ip}<br/>
             <b>Client:</b> ${(obj as Node).clientVersion}<br/>
@@ -173,7 +181,7 @@ export default function Map() {
           pointLng={(d: object) => (d as Node).lng}
           width={window.innerWidth}
           height={window.innerHeight - 100}
-          atmosphereColor="#d9ffe2"  // Change this to your desired glow color
+          atmosphereColor="#ffadad"  // Change this to your desired glow color
           atmosphereAltitude={0.1}
         />
       )}

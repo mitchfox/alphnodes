@@ -4,8 +4,13 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { HiOutlineMenu } from "react-icons/hi";
+import { useTheme } from "next-themes";
+import Image from 'next/image'
+import Logo from '../../public/logo.png';
+import LogoDark from '../../public/logo-dark.png';
 
 export default function Header() {
+  const { theme, setTheme } = useTheme();
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -59,10 +64,14 @@ export default function Header() {
                       fontWeight: '700',
                       fontSize: '15px',
                     }}
-                    className="text-neutral-800 dark:text-neutral-200 rounded-lg hover:bg-green-100 dark:hover:bg-neutral-800/30 py-1.5 px-3"
+                    className="text-neutral-800 dark:text-neutral-200 rounded-lg py-1.5 px-3"
                     onClick={handleLinkClick}
                   >
-                    <span style={{ fontSize: '18px' }}></span>ALPH<span className="text-green-400 italic">NODES</span>
+                    <Image 
+                    src={theme === 'dark' ? Logo : LogoDark} alt="Alephium World"
+                    // src={theme === 'dark' ? "https://raw.githubusercontent.com/alephium/alephium-brand-guide/master/logos/light/Logo-Icon.png" : "https://raw.githubusercontent.com/alephium/alephium-brand-guide/master/logos/dark/Logo-Icon.png"}  
+                    style={{ height: '28px', width: '28px' }} />
+                    {/* <span style={{ fontSize: '18px' }}></span>ALPH<span className="text-green-400 italic">NODES</span> */}
                   </Link>
                 </div>
                 {/* Navigation links */}
