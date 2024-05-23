@@ -8,7 +8,7 @@ import data from '../../app/api/fullnodes.json';
 
 import dynamic from 'next/dynamic';
 const Card = dynamic(() => import('./card'), { ssr: false });
-
+const HistoryChart = dynamic(() => import('./history-chart'), { ssr: false });
 
 export default function CardLinks() {
   const [countries, setCountries] = useState<{ name: string, count: number }[]>([]);
@@ -72,7 +72,18 @@ export default function CardLinks() {
                   {segments.map((item) => (
                     <Card key={item.id} item={item} />
                   ))}
+
+
+                
                 </div>
+              
+                <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-10 mt-10">
+              
+                <HistoryChart />
+                </div>
+
+                
+                
               </section>
             </div>
           </section>

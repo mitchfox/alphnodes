@@ -2,14 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Counter from './counter';
-
 interface StatProps {
   number: number | null;
   suffix: string;
   text: string;
 }
 
-export default function Stats() {
+export default function Analytics() {
   // State variables for dynamic stats
   const [totalTransactions, setTotalTransactions] = useState<number | null>(null);
   const [networkHashrate, setNetworkHashrate] = useState<number | null>(null);

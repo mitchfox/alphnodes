@@ -46,3 +46,18 @@
   .country-flag img {
     vertical-align: middle;
   }
+
+  .apexcharts-menu-item {
+    color: #64758B;
+  }
+
+  .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+    color: #64758B;
+  }
+
+  .apexcharts-tooltip-text {
+    color: #64758B;
+  }
+  .SvgjsTspan2901 {
+    fill: #64758B;
+  }

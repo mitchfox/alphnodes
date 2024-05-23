@@ -46,7 +46,7 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
               showAlways: true,
               show: true,
               label: "Total",
-              color: "#96A5BA",
+              color: "#64758B",
               fontFamily: "Inter, sans-serif",
               formatter: function (w: any) {
                 if (id === '1') {
@@ -59,7 +59,7 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
             },
             value: {
               show: true,
-              color: "#96A5BA",
+              color: "#64758B",
               fontFamily: "Inter, sans-serif",
               offsetY: -20,
               formatter: function (value: number) {
@@ -76,7 +76,7 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
         top: -2,
       },
     },
-    color: "#96A5BA",
+    color: "#64758B",
     labels: htmlLabels, // Use HTML labels with flags
     dataLabels: {
       enabled: false,
@@ -89,21 +89,21 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
     },
     legend: {
       position: "bottom",
-      color: "#96A5BA",
+      color: "#64758B",
       fontSize: "14px",
       fontFamily: "Inter, sans-serif",
       labels: {
-        colors: "#96A5BA",
+        colors: "#64758B",
       },
       markers: {
         width: 10,
         height: 10,
         radius: 10,
-        color: "#96A5BA",
+        color: "#64758B",
       },
     },
     yaxis: {
-      color: "#96A5BA",
+      color: "#64758B",
       labels: {
         formatter: function (value: number) {
           return value;
@@ -161,7 +161,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
   }, [item.data, item.labels]);
 
   return (
-    <div className="max-w-md w-full bg-white rounded-lg shadow dark:bg-neutral-800 p-4 md:p-6" style={{ margin: 'auto' }}>
+    <div className="max-w-lg w-full bg-white rounded-lg shadow dark:bg-neutral-800 p-4 md:p-6" style={{ margin: 'auto' }}>
       <div className="flex justify-between mb-3">
         <div className="flex justify-center items-center">
           <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">{item.title}</h5>
