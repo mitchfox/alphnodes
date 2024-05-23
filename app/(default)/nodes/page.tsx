@@ -13,9 +13,8 @@ export const metadata = {
 
 
 import PageHeaderAlt from "@/components/page-header-alt";
-import Cta from "@/components/cta";
-import Posts from "@/app/(default)/updates/posts";
-import TokenList from "@/components/tokenlist";
+// import Cta from "@/components/cta";
+// import Posts from "@/app/(default)/updates/posts";
 
 
 export default async function Updates() {

@@ -4,9 +4,6 @@ export const metadata = {
 };
 
 import PageHeader from "@/components/page-header";
-import SubscribeForm from "@/components/subscribe-form";
-import Calculator from "@/components/calculator/calculator";
-import CardLinks from "@/components/ui/card-links";
 import Map from "@/components/map";
 import Stats from '@/components/ui/stats';
 // import NewMap from "@/components/newmap";
