@@ -1,9 +1,17 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+
+
+  useEffect(() => {
+    if (theme !== "dark") {
+      setTheme("dark");
+    }
+  }, []);
 
   return (
     <div className="flex-1 flex justify-end">
