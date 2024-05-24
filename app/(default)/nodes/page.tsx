@@ -4,10 +4,10 @@ Note: This code includes an example of how to fetch data from an external JSON f
 */
 }
 
-import TokenTable from "./token-table";
+import NodeTable from "./node-table";
 
 export const metadata = {
-  title: "Alph Nodes - Tokens",
+  title: "Alephium World - Nodes",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
@@ -34,7 +34,7 @@ export default async function Updates() {
         </div>
         </div>
 
-        <TokenTable />
+        <NodeTable />
     
       </section>
 

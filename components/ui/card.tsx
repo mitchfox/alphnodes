@@ -2,19 +2,9 @@
 
 import React, { useEffect, useRef } from "react";
 import ApexCharts from 'apexcharts';
-// import '../../components/styles.css';
-import ReactCountryFlag from "react-country-flag"
 import '../clusters.css';
 
-const generateHtmlLabels = (labels) => {
-  return labels.map(label => {
-    return `<span class="flag-icon"><span class="country-code">${label}</span> <span class="country-flag"><img src="https://flagcdn.com/${label.toLowerCase()}.svg" alt="${label}" style="width: 20px; height: 15px;"/></span></span>`;
-  });
-};
-
-
 const getChartOptions = (data: number[], labels: string[], id: string) => {
-  const htmlLabels = generateHtmlLabels(labels);
   return {
     series: data,
     colors: [
@@ -62,8 +52,15 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
               color: "#64758B",
               fontFamily: "Inter, sans-serif",
               offsetY: -20,
-              formatter: function (value: number) {
-                return value;
+              formatter: function (val: number, opts: any) {
+                const seriesIndex = opts.seriesIndex;
+                const seriesValue = opts?.w?.globals?.series?.[seriesIndex];
+                const labelValue = labels?.[seriesIndex]; // Use plain text labels here
+
+                if (seriesValue !== undefined && labelValue !== undefined) {
+                  return `${seriesValue} (${labelValue})`;
+                }
+                return val; // Fallback if the values are undefined
               },
             },
           },
@@ -77,7 +74,7 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
       },
     },
     color: "#64758B",
-    labels: htmlLabels, // Use HTML labels with flags
+    labels: labels, // Use plain text labels for display
     dataLabels: {
       enabled: false,
       formatter: function (val: number, opts: any) {
@@ -147,7 +144,6 @@ const Card: React.FC<CardProps> = ({ item }) => {
     let chart: ApexCharts | null = null;
 
     if (chartRef.current) {
-      console.log(item.labels);
       const options = getChartOptions(item.data, item.labels, item.id); // Convert item.id to a string
       chart = new ApexCharts(chartRef.current, options);
       chart.render();

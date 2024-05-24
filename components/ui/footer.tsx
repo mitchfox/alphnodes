@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="text-center py-8">
             <div className="text-sm text-gray-700 dark:text-gray-400">
               {/* open in a new link */}
-              <p>© AlphNodes</p>
+              <p>© Alephium World</p>
               <p>Powered by <a className="text-green-500" href="https://notrustverify.ch" target="_blank" rel="noopener noreferrer">No Trust Verify</a> & <a className="text-green-500" href="https://x.com/pushvalue" target="_blank" rel="noopener noreferrer">Push Value</a></p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Alph Nodes - FAQs",
+  title: "Alephium World - FAQs",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 

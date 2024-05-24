@@ -5,7 +5,7 @@ Note: This code includes an example of how to fetch data from an external JSON f
 }
 
 export const metadata = {
-  title: "Alph Nodes - Updates",
+  title: "Alephium World - Updates",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 

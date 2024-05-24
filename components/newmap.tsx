@@ -8,6 +8,7 @@ import Globe from "react-globe.gl";
 import 'leaflet/dist/leaflet.css';
 import { useTheme } from "next-themes";
 import './clusters.css';
+import ReactCountryFlag from "react-country-flag"
 
 const ICON = new L.Icon({
   iconUrl: '/marker.png', // Path to your custom marker image in the public folder
@@ -146,21 +147,26 @@ export default function Map() {
           <MarkerClusterGroup
             iconCreateFunction={createClusterCustomIcon}
           >
-            {nodes.map((node, index) => (
-              <Marker
-                key={index}
-                position={[node.lat, node.lng]}
-                icon={theme === 'dark' ? ICON : ICON2}
-              >
-                <Popup>
-                  <div>
-                    <p><strong>IP:</strong> {node.ip}</p>
-                    <p><strong>Client:</strong> {node.clientVersion}</p>
-                    <p><strong>Country:</strong> {node.country}</p>
-                  </div>
-                </Popup>
-              </Marker>
-            ))}
+            {nodes.map((node, index) => {
+              // Extract version number from clientVersion
+              const version = node.clientVersion?.match(/v\d+\.\d+\.\d+/)?.[0];
+
+              return (
+                <Marker
+                  key={index}
+                  position={[node.lat, node.lng]}
+                  icon={theme === 'dark' ? ICON : ICON2}
+                >
+                  <Popup>
+                    <div>
+                      {/* <p><strong>IP:</strong> {node.ip}</p> */}
+                      <p style={{ textTransform: 'capitalize' }}><strong>Client:</strong> {version}</p>
+                      <p><strong>Country:</strong> <ReactCountryFlag countryCode={node.country} style={{ fontSize: '20px' }} /></p>
+                    </div>
+                  </Popup>
+                </Marker>
+              );
+            })}
           </MarkerClusterGroup>
         </MapContainer>
       ) : (
@@ -171,9 +177,9 @@ export default function Map() {
           backgroundColor="rgba(0,0,0,0)"
           pointsData={nodes}
           pointAltitude={0.075}
-          pointColor={() => '#FF5D51'}
+          pointColor={() => '#22C55D'}
+          // <b>IP:</b> ${(obj as Node).ip}<br/>
           pointLabel={(obj: object) => `
-            <b>IP:</b> ${(obj as Node).ip}<br/>
             <b>Client:</b> ${(obj as Node).clientVersion}<br/>
             <b>Country:</b> ${(obj as Node).country}
           `}
@@ -181,7 +187,7 @@ export default function Map() {
           pointLng={(d: object) => (d as Node).lng}
           width={window.innerWidth}
           height={window.innerHeight - 100}
-          atmosphereColor="#ffadad"  // Change this to your desired glow color
+          atmosphereColor="#bbf7d0"  // Change this to your desired glow color
           atmosphereAltitude={0.1}
         />
       )}

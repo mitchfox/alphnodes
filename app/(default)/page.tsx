@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Alph Nodes - Home",
+  title: "Alephium World",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
@@ -35,7 +35,7 @@ export default function Home() {
                 <div className="text-center mt-6">
                   <div className="text-sm text-zinc-700 dark:text-zinc-400">
                     {/* open in a new link */}
-                    <p style={{ fontSize: '13px' }}>© AlphNodes. Powered by <a className="text-green-500" href="https://notrustverify.ch" target="_blank" rel="noopener noreferrer">No Trust Verify</a> & <a className="text-green-500" href="https://x.com/pushvalue" target="_blank" rel="noopener noreferrer">Push Value</a></p>
+                    <p style={{ fontSize: '13px' }}>© Alephium World. Powered by <a className="text-green-500" href="https://notrustverify.ch" target="_blank" rel="noopener noreferrer">No Trust Verify</a> & <a className="text-green-500" href="https://x.com/pushvalue" target="_blank" rel="noopener noreferrer">Push Value</a></p>
                   </div>
                 </div>
               </div>

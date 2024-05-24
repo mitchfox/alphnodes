@@ -20,7 +20,7 @@ const inter_tight = Inter_Tight({
 });
 
 export const metadata = {
-  title: "Alph Nodes",
+  title: "Alephium World",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 

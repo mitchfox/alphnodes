@@ -2,7 +2,7 @@
 import CardLinks from "@/components/ui/card-links";
 
 export const metadata = {
-  title: "Alph Nodes - Ecosystem",
+  title: "Alephium World - Stats",
   description: "Embark on your Alephium journey today. Access the tools, insights, and community support to unlock the full potential of your blockchain endeavors.",
 };
 
