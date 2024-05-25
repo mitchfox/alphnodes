@@ -189,7 +189,7 @@ export default function Map() {
           bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
           backgroundColor="rgba(0,0,0,0)"
           pointsData={nodes}
-          pointAltitude={0.075}
+          pointAltitude={0.03}
           pointColor={() => '#22C55D'}
           // <b>IP:</b> ${(obj as Node).ip}<br/>
           pointLabel={(obj: object) => `
