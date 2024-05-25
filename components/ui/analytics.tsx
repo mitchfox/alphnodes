@@ -20,7 +20,7 @@ export default function Analytics() {
     {
       number: totalFullNodes,
       suffix: '',
-      text: 'Total Nodes Discovered (not representing the entire network)',
+      text: 'Total Nodes Discovered',
     },
     {
       number: 16,
@@ -117,7 +117,7 @@ export default function Analytics() {
           <div key={index} className="relative text-center">
             <h4 className="mb-1 font-bold tabular-nums font-inter-tight text-md md:text-2xl">
               {stat.number !== null ? <Counter number={stat.number} /> : 'Loading...'}
-              {stat.suffix}
+              {stat.suffix} {index === 0 ? '/125' : null}
             </h4>
             <p className="text-xs text-neutral-500">{stat.text}</p>
           </div>
