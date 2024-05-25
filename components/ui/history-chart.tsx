@@ -12,7 +12,7 @@ interface DataPoint {
 const getChartOptions = (seriesData: { x: string; y: number }[]) => {
   return {
     series: [{
-      name: 'Users',
+      name: 'Nodes',
       data: seriesData
     }],
     chart: {
@@ -76,7 +76,7 @@ const HistoryChart: React.FC = () => {
   }, [seriesData]);
 
   return (
-    <div className="max-w w-full bg-white rounded-lg shadow dark:bg-neutral-800 p-4 md:p-6" style={{ margin: 'auto' }}>
+    <div className="p-4 w-full bg-white rounded-lg shadow max-w dark:bg-neutral-800 md:p-6" style={{ margin: 'auto' }}>
       <div className="flex justify-between mb-3">
         <div className="flex justify-center items-center">
           <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Node History</h5>
