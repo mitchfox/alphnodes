@@ -37,9 +37,22 @@ interface Node {
 export default function Map() {
   const { theme, setTheme } = useTheme();
   const [view, setView] = useState<'map' | 'globe'>('map');
+  const [height, setHeight] = useState(window.innerHeight);
   const [nodes, setNodes] = useState<Node[]>([]);
   const [nodesLoading, setNodesLoading] = useState(true);
   const globeEl = useRef<any>(null);
+
+  useEffect(() => {
+    setHeight(window.innerHeight);
+    window.addEventListener('resize', () => {
+      setHeight(window.innerHeight);
+    });
+    return () => {
+      window.removeEventListener('resize', () => {
+        setHeight(window.innerHeight);
+      });
+    };
+  }, []);
 
   useEffect(() => {
     // Fetch data from your API
@@ -133,7 +146,7 @@ export default function Map() {
       ) : view === 'map' ? (
         <MapContainer
           center={[0, 0]}
-          minZoom={2}
+          minZoom={height < 1000 ? 2 : 3}
           maxZoom={18}
           maxBounds={[[90, -180], [-90, 180]]} // Restrict bounds to the whole world
           maxBoundsViscosity={1.0} // Ensure bounds are strictly enforced
