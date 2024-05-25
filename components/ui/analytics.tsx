@@ -20,7 +20,7 @@ export default function Analytics() {
     {
       number: totalFullNodes,
       suffix: '',
-      text: 'Total Nodes Running',
+      text: 'Total Nodes Discovered (not representing the entire network)',
     },
     {
       number: 16,
@@ -111,11 +111,11 @@ export default function Analytics() {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto sm:px-6">
-      <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-start">
+    <div className="mx-auto max-w-6xl sm:px-6">
+      <div className="grid grid-cols-4 gap-4 items-start sm:grid-cols-4 md:grid-cols-4 sm:gap-6 md:gap-8">
         {stats.map((stat, index) => (
           <div key={index} className="relative text-center">
-            <h4 className="font-inter-tight text-md md:text-2xl font-bold tabular-nums mb-1">
+            <h4 className="mb-1 font-bold tabular-nums font-inter-tight text-md md:text-2xl">
               {stat.number !== null ? <Counter number={stat.number} /> : 'Loading...'}
               {stat.suffix}
             </h4>
