@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Alephium World - Alephium Node Map
 
-Visualisation tool for viewing nodes hosting alephium's network using No Trust Verify APIs
+https://www.alephium.world/
+
+Visualisation tool for viewing nodes hosting alephium's network using No Trust Verify APIs.
+
+Built by [No Trust Verify](https://notrustverify.ch/) & [Push Value](https://x.com/pushvalue)
 
 
 First, run the development server:
@@ -39,4 +43,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# alphwiki
