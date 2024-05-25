@@ -33,7 +33,7 @@ const getChartOptions = (seriesData: { x: string; y: number }[]) => {
       categories: seriesData.map(data => data.x),
       labels:{
         style:{
-          colors: ['#64758B'],
+          colors: '#64758B',
         }
       }
     },
@@ -41,7 +41,7 @@ const getChartOptions = (seriesData: { x: string; y: number }[]) => {
       min: 0,
       labels:{
         style:{
-          colors: ['#64758B'],
+          colors: '#64758B',
         }
       }
     },
