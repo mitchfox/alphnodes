@@ -61,3 +61,26 @@
   .SvgjsTspan2901 {
     fill: #64758B;
   }
+
+
+  /* .map-container {
+    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+  }
+   */
+  /* Adjust layout for larger screens */
+  /* @media (min-width: 1000px) {
+    .map-container {
+      height: 100vh;
+    }
+  } */
+
+  .leaflet-container {
+    min-height: 100vh;
+    /* background-color: #262626 !important; */
+  }
+
+  .leaflet-container {
+    background-color: transparent !important;
+  }
