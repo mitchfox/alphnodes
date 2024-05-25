@@ -23,14 +23,27 @@ const getChartOptions = (seriesData: { x: string; y: number }[]) => {
       }
     },
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     stroke: {
       curve: 'smooth'
     },
     xaxis: {
       type: 'datetime',
-      categories: seriesData.map(data => data.x)
+      categories: seriesData.map(data => data.x),
+      labels:{
+        style:{
+          colors: ['#64758B'],
+        }
+      }
+    },
+    yaxis: {
+      min: 0,
+      labels:{
+        style:{
+          colors: ['#64758B'],
+        }
+      }
     },
     tooltip: {
       x: {
