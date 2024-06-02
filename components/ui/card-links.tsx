@@ -17,18 +17,18 @@ export default function CardLinks() {
     const versionMap: { [key: string]: number } = {};
     const versionOsMap: { [key: string]: number } = {};
     const versionFullnodeMap: { [key: string]: number } = {};
-
+  
     data.forEach((item: any) => {
       const fullnode = item.clientVersion.split("/")[0];
-      const version = item.clientVersion.split("/")[1];
+      const version = item.clientVersion.split("/")[1].split('.')[0]; // Extract major version
       const os = item.clientVersion.split("/")[2];
-
+  
       countryMap[item.country] = (countryMap[item.country] || 0) + 1;
       versionMap[version] = (versionMap[version] || 0) + 1;
       versionOsMap[os] = (versionOsMap[os] || 0) + 1;
       versionFullnodeMap[fullnode] = (versionFullnodeMap[fullnode] || 0) + 1;
     });
-
+  
     const countries = Object.keys(countryMap).map((country) => ({
       name: country,
       count: countryMap[country]
@@ -47,6 +47,7 @@ export default function CardLinks() {
     }));
     return { countries, versions, versionOs, versionFullnode };
   };
+  
 
   useEffect(() => {
     fetch('https://map.alephium.notrustverify.ch/fullnodes')

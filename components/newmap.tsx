@@ -141,7 +141,7 @@ export default function Map() {
       </div>
       {nodesLoading ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', margin: 'auto' }}>
-          <p>Loading data on all the amazing people who support the Alephium Network...</p>
+          <p style={{ fontSize: '14px', textAlign: 'center' }}>Gathering information on the incredible individuals who back the Alephium Network...</p>
         </div>
       ) : view === 'map' ? (
         <MapContainer
@@ -203,6 +203,26 @@ export default function Map() {
           atmosphereColor="#bbf7d0"  // Change this to your desired glow color
           atmosphereAltitude={0.1}
         />
+
+// HEX BIN STYLE
+        //   <Globe
+        //   ref={globeEl}
+        //   globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        //   bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+        //   backgroundColor="rgba(0,0,0,0)"
+        //   hexBinPointsData={nodes}
+        //   hexBinPointLat={(d: object) => (d as Node).lat}
+        //   hexBinPointLng={(d: object) => (d as Node).lng}
+        //   hexBinResolution={4} // Adjust the hex bin resolution as needed
+        //   hexBinMerge={true}
+        //   hexBinColor={() => '#22C55D'}
+        //   hexBinAltitude={(d: any) => d.sumWeight * 0.04} // Adjust the altitude based on the density
+        //   width={window.innerWidth}
+        //   height={window.innerHeight}
+        //   atmosphereColor="#bbf7d0"  // Change this to your desired glow color
+        //   atmosphereAltitude={0.1}
+        // />
+
       )}
     </div>
   );

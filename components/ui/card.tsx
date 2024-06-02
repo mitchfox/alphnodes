@@ -8,9 +8,9 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
   return {
     series: data,
     colors: [
-      "#ef4444", "#D97706", "#F59E0B", "#84CC16", "#4ADE80", "#22C55E", "#10B981",
+      "#22C55D", "#15803d",
       "#1D4ED8", "#2563EB", "#3B82F6", "#7C3AED", "#9333EA", "#C026D3", "#E74694",
-      "#EC4899", "#f87171", "#F97316", "#FB923C", "#FBBF24", "#FACC15"
+      "#EC4899", "#f87171", "#F97316", "#FB923C", "#FBBF24", "#FACC15",  
     ],
     chart: {
       height: 320,

@@ -56,3 +56,113 @@
     transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1),
     width 0.1s ease-out;
 }
+
+
+/* LAYOUT.CSS */
+
+.svgcontain{
+  margin-top:120px;
+}
+.title_one{
+  margin-top:40px;
+  text-align:center;
+}
+    
+
+
+/* ANIMATIONS */
+
+
+.loader_circle_1s{
+  animation: rotateClockwise 1s linear infinite;
+  transform-origin: center;      
+  transform-box: fill-box;
+  }
+  .loader_circle_12s{
+  animation: rotateClockwise 12s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_144s{
+  animation: rotateClockwise 144s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_1{
+  animation: rotateClockwise 1.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_2{
+  animation: rotateClockwise 2.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_3{
+  animation: rotateClockwise 3.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_4{
+  animation: rotateClockwise 4.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_5{
+  animation: rotateClockwise 5.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+  .loader_circle_6{
+  animation: rotateClockwise 6.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+  }
+
+  @keyframes rotateClockwise {
+  from {
+  transform: rotate(0deg);
+  }
+  to {
+  transform: rotate(360deg);
+  }
+  }
+      .loader_circle_1_counter{
+      animation: rotateCounterClockwise 1.5s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+      }
+      .loader_circle_2_counter{
+      animation: rotateCounterClockwise 2.5s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+      }
+      .loader_circle_3_counter{
+      animation: rotateCounterClockwise 3.5s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+      }
+      .loader_circle_4_counter{
+      animation: rotateCounterClockwise 4.5s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+      }
+      .loader_circle_5_counter{
+      animation: rotateCounterClockwise 5.5s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+      }
+      .loader_circle_6_counter{
+      animation: rotateCounterClockwise 6.5s linear infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+      }
+
+  @keyframes rotateCounterClockwise {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(-360deg);
+      }
+    }
