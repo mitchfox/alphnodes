@@ -80,13 +80,16 @@ const getChartOptions = (data: number[], labels: string[], id: string) => {
     color: "#64758B",
     labels: labels, // Use plain text labels for display
     dataLabels: {
-      enabled: false,
+      enabled: true,
       formatter: function (val: number, opts: any) {
-        return opts.w.globals.labels[opts.seriesIndex];
+        return val.toFixed(1) + "%";
       },
       style: {
         colors: ['#fff']
       },
+      dropShadow:{
+        enabled: true
+      }
     },
     legend: {
       position: "bottom",

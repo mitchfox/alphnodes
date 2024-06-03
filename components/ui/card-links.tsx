@@ -20,7 +20,7 @@ export default function CardLinks() {
   
     data.forEach((item: any) => {
       const fullnode = item.clientVersion.split("/")[0];
-      const version = item.clientVersion.split("/")[1].split('.')[0]; // Extract major version
+      const version = item.clientVersion.split("/")[1].split('.').slice(0,2).join("."); // Extract majo/minor version
       const os = item.clientVersion.split("/")[2];
   
       countryMap[item.country] = (countryMap[item.country] || 0) + 1;
