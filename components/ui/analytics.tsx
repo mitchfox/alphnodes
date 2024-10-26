@@ -15,6 +15,8 @@ export default function Analytics() {
   const [hashrateSuffix, setHashrateSuffix] = useState<string>(''); // State for dynamic suffix
   const [totalFullNodes, setTotalFullNodes] = useState<number | null>(null); // State for total full nodes
 
+
+
   // Static stats
   const stats: StatProps[] = [
     {
@@ -76,8 +78,10 @@ export default function Analytics() {
           console.log('Hashrate Number:', hashrateNumber); // Debugging
           
           // Determine appropriate suffix and value
-          if (hashrateNumber >= 1000000) {
-            
+          if (hashrateNumber >= 1000000000) {
+            setNetworkHashrate(parseFloat((hashrateNumber / 1000000000).toFixed(2))); // Convert to PH/s
+            setHashrateSuffix('PH/s');
+          } else if (hashrateNumber >= 1000000) {
             setNetworkHashrate(parseFloat((hashrateNumber / 1000000).toFixed(2))); // Convert to TH/s
             setHashrateSuffix('TH/s');
           } else {
