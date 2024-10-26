@@ -3,7 +3,7 @@ import "./css/style.css";
 import { Inter, Inter_Tight } from "next/font/google";
 import Theme from "./theme-provider";
 // import { WalletConfigProvider } from './path/to/WalletConfigProvider';
-import AlephiumWalletProvider from "@alephium/web3-react";
+// import AlephiumWalletProvider from "@alephium/web3-react";
 
 const inter = Inter({
   subsets: ["latin"],
